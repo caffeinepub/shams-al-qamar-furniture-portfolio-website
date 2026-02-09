@@ -1,71 +1,48 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T18:22:14.764Z",
-  "summary": "Implemented a multi-page TanStack Router structure with shared header/footer layout, warm neutral/gold theme styling, service content data with per-service media strips, and a gallery media/lightbox component scaffold. However, the required generated brand image assets are not evidenced in the diff, and some unrelated/auth-template hook files appear to have been added despite not being requested.",
+  "generatedAt": "2026-02-09T19:25:13.167Z",
+  "summary": "Implemented the requested navigation/footer label rename to “Portfolio” (still linking to /gallery) and added a UI component to display/copy a “direct portfolio link” on the Gallery page. Updated gallery media manifest paths to point at /assets/generated/*. However, the diff does not provide evidence of an actual deployment/live URL, nor does it conclusively demonstrate that the original runtime/build error is identified and fixed beyond these UI/content changes.",
   "missing_requirements": [
     {
-      "id": "REQ-8",
-      "requirement": "Add required generated brand images to the project as static assets under frontend/public/assets/generated and use them in the UI with the exact filenames specified.",
-      "reason": "Header/Footer reference the generated logo filename, but the diff summary does not show the required image files being added under frontend/public/assets/generated (nor the hero background image). Without those assets present, the requirement/AC about the files existing with exact filenames is not verifiable from the diff evidence.",
+      "id": "REQ-18",
+      "requirement": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
+      "reason": "The diff shows some UI/content updates (nav label change, gallery document.title update, gallery media paths), but does not show what the original error was or provide evidence that the build/runtime issue is fully resolved across all routes (e.g., no TypeScript/build output, no mention of fixed routing errors, and only partial evidence of asset-path correctness).",
       "evidence": [
+        "frontend/src/pages/GalleryPage.tsx",
+        "frontend/src/content/galleryMedia.ts",
         "frontend/src/components/layout/Header.tsx",
         "frontend/src/components/layout/Footer.tsx"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "requirement": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus /gallery).",
+      "reason": "No evidence in the diff summary of deployment configuration changes or any produced/public live URL. The added component computes a URL at runtime from window.location.origin, but that is not the same as providing a deployed live URL.",
+      "evidence": [
+        "frontend/src/components/branding/PortfolioDirectLink.tsx",
+        "frontend/src/pages/GalleryPage.tsx"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Added/implemented Internet Identity and actor/react-query hooks (useActor, useInternetIdentity) and a reserved backend query hook file, which are not part of the portfolio website requirements.",
-      "reason": "BuildRequest explicitly focuses on marketing/portfolio pages, gallery, services, contact, theme, and static assets. No requirement asks to add or alter authentication/actor hooks or react-query integration; these changes are extraneous to the requested feature set based on the diff summary.",
+      "description": "Added an on-page “Share this portfolio” card with copy-to-clipboard functionality and an external link icon on the /gallery page.",
+      "reason": "REQ-20 asks to deploy and provide a direct live URL; it does not explicitly request adding new UI/UX on the Gallery page for copying/sharing the link.",
       "evidence": [
-        "frontend/src/hooks/useActor.ts",
-        "frontend/src/hooks/useInternetIdentity.ts",
-        "frontend/src/hooks/useQueries.ts",
-        "frontend/src/main.tsx"
-      ]
-    },
-    {
-      "description": "Introduced a backend Motoko actor file with an empty actor body.",
-      "reason": "While the constraints say to keep a single Motoko actor, the BuildRequest does not request any backend implementation changes or a new empty backend actor file; this appears unrelated to the requested frontend portfolio features.",
-      "evidence": [
-        "backend/main.mo"
+        "frontend/src/components/branding/PortfolioDirectLink.tsx",
+        "frontend/src/pages/GalleryPage.tsx"
       ]
     }
   ],
-  "confidence": 0.66,
+  "confidence": 0.62,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/branding/QRCodeBlock.tsx",
-    "frontend/src/components/branding/SectionHeader.tsx",
+    "frontend/src/components/branding/PortfolioDirectLink.tsx",
     "frontend/src/components/layout/Footer.tsx",
     "frontend/src/components/layout/Header.tsx",
-    "frontend/src/components/layout/SiteLayout.tsx",
-    "frontend/src/components/media/MediaLightbox.tsx",
-    "frontend/src/components/media/MediaStrip.tsx",
-    "frontend/src/components/services/ServiceSection.tsx",
     "frontend/src/content/galleryMedia.ts",
-    "frontend/src/content/qrMatrix.ts",
-    "frontend/src/content/services.ts",
-    "frontend/src/content/siteCopy.ts",
-    "frontend/src/content/socialLinks.ts",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/AboutPage.tsx",
-    "frontend/src/pages/ContactPage.tsx",
     "frontend/src/pages/GalleryPage.tsx",
-    "frontend/src/pages/HomePage.tsx",
-    "frontend/src/pages/ServicesPage.tsx",
-    "frontend/src/pages/VisionMissionPage.tsx",
-    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

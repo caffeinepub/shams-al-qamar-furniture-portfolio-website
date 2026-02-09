@@ -4,6 +4,7 @@ import { SiInstagram, SiTiktok, SiSnapchat } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/content/socialLinks';
 import { contactInfo } from '@/content/siteCopy';
+import { brandAssets } from '@/content/branding';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,13 +20,17 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/assets/generated/shams-al-qamar-logo.dim_512x512.png"
-                alt="Shams Al Qamar Furniture"
-                className="h-10 w-10 object-contain"
+                src={brandAssets.logo.src}
+                alt={brandAssets.logo.alt}
+                className="saq-logo h-12 w-auto"
               />
               <div className="flex flex-col">
-                <span className="font-serif text-lg font-bold">Shams Al Qamar</span>
-                <span className="text-xs tracking-wider text-muted-foreground">FURNITURE</span>
+                <span className="font-serif text-lg font-bold">
+                  {brandAssets.companyName.primary}
+                </span>
+                <span className="text-xs tracking-wider text-muted-foreground">
+                  {brandAssets.companyName.secondary}
+                </span>
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -47,7 +52,7 @@ export default function Footer() {
                 Services
               </Link>
               <Link to="/gallery" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                Gallery
+                Portfolio
               </Link>
               <Link to="/contact" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                 Contact

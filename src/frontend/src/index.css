@@ -96,6 +96,14 @@
     h1, h2, h3, h4, h5, h6 {
         @apply font-serif;
     }
+    
+    /* SAQ Logo styling for crisp rendering and consistent appearance */
+    .saq-logo {
+        object-fit: contain;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        max-width: 100%;
+    }
 }
 
 @layer utilities {

@@ -5,6 +5,7 @@ import { SiInstagram, SiTiktok, SiSnapchat } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { socialLinks } from '@/content/socialLinks';
+import { brandAssets } from '@/content/branding';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function Header() {
     { label: 'About', path: '/about' },
     { label: 'Vision & Mission', path: '/vision-mission' },
     { label: 'Services', path: '/services' },
-    { label: 'Gallery', path: '/gallery' },
+    { label: 'Portfolio', path: '/gallery' },
     { label: 'Contact', path: '/contact' },
   ];
 
@@ -25,15 +26,17 @@ export default function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/assets/generated/shams-al-qamar-logo.dim_512x512.png"
-            alt="Shams Al Qamar Furniture"
-            className="h-12 w-12 object-contain"
+            src={brandAssets.logo.src}
+            alt={brandAssets.logo.alt}
+            className="saq-logo h-14 w-auto"
           />
           <div className="hidden flex-col sm:flex">
             <span className="font-serif text-xl font-bold tracking-tight text-foreground">
-              Shams Al Qamar
+              {brandAssets.companyName.primary}
             </span>
-            <span className="text-xs font-light tracking-wider text-muted-foreground">FURNITURE</span>
+            <span className="text-xs font-light tracking-wider text-muted-foreground">
+              {brandAssets.companyName.secondary}
+            </span>
           </div>
         </Link>
 

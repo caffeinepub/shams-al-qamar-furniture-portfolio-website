@@ -1,14 +1,21 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 15,
   "summary": "Portfolio website project for Shams Al Qamar Furniture (furniture/interiors business) with multi-page, video-referenced theme, service sections, and contact/location details; content to be sourced from provided social media links.",
   "architectural_notes": [
     "Site should be organized into clear, separate sections/pages per service category (Curtains & Drapes, Wallpaper Solutions, Full Interior, Turnkey Service, etc.).",
-    "Include prominent Contact/Location information and links to social platforms; portfolio media to be curated from provided social profiles."
+    "Include prominent Contact/Location information and links to social platforms; portfolio media to be curated from provided social profiles.",
+    "Approved information architecture: organize the site/portfolio by service categories (Option 1: sections by service), including Majlis / Arabic Seating.",
+    "Ensure all placeholder/template branding (e.g., “AURUM”) is replaced with Shams Al Qamar-approved branding text such as “SAQ” across header, titles, metadata, and components.",
+    "Improve SAQ branding presentation (logo/wordmark styling) so “SAQ” looks polished and consistent with the site theme."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Minimal premium wordmark logo in black/gold on transparent background (shams-al-qamar-logo.dim_512x512.png)\n- Elegant interior-themed hero background with warm neutral tones and subtle texture/pattern (shams-al-qamar-hero-bg.dim_1920x1080.png)",
+  "known_issues": [
+    "Deployment/build failed during last attempt; site not deployed yet. User requested a fresh build/rebuild (\"start build\").",
+    "Build/deploy is currently blocked by a system configuration error (Caffeine platform error) encountered when attempting to rebuild.",
+    "User reports an error in the deployed Draft Version 6 and requests regeneration/rebuild before sharing the direct live portfolio link."
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Edit Images\n- Clean and enhance gallery photo (IMG-20260205-WA0002-1.jpg > IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0003-1.jpg > IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0004-1.jpg > IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0005-1.jpg > IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0006-1.jpg > IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0007-1.jpg > IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0008-1.jpg > IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0009-1.jpg > IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0011-1.jpg > IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0012-1.jpg > IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0013-1.jpg > IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0016-1.jpg > IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0017-1.jpg > IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0018-1.jpg > IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0019-1.jpg > IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0020-1.jpg > IMG-20260205-WA0020-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0025-1.jpg > IMG-20260205-WA0025-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0027-1.jpg > IMG-20260205-WA0027-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0028-1.jpg > IMG-20260205-WA0028-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0030-1.jpg > IMG-20260205-WA0030-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0032-1.jpg > IMG-20260205-WA0032-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0040-1.jpg > IMG-20260205-WA0040-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0042-1.jpg > IMG-20260205-WA0042-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0043-1.jpg > IMG-20260205-WA0043-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0044-1.jpg > IMG-20260205-WA0044-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0045-1.jpg > IMG-20260205-WA0045-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0051-1.jpg > IMG-20260205-WA0051-1-clean.dim_1600x1200.jpg)\n- Clean and enhance gallery photo (IMG-20260205-WA0053-1.jpg > IMG-20260205-WA0053-1-clean.dim_1600x1200.jpg)",
   "existing_features": [
     {
       "id": "feature-create-a-responsive-multi-page-portfolio-website-for-shams-al-qamar-furniture-with-website-like-navigation-not-a-single-slide-deck-using-the-provided-english-copy-as-the-primary-content",
@@ -73,6 +80,78 @@
         "REQ-8"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-two-new-first-class-service-sections-sofa-upholstery-new-sofa-sets-and-majlis-arabic-seating-to-the-services-page-using-the-existing-service-section-by-category-structure-servicesection-cards-with-mediastrip",
+      "title": "Add two new first-class service sections—“Sofa Upholstery & New Sofa Sets” and “Majlis / Arabic Seating”—to the Services page using the existing service-section-by-category structure (ServiceSection cards with MediaStrip).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-gallery-page-supports-the-new-service-categories-sofa-upholstery-new-sofa-sets-and-majlis-arabic-seating-as-filter-tabs-even-when-there-are-no-media-items-yet-while-keeping-the-existing-service-category-filtering-behavior-for-populated-categories",
+      "title": "Ensure the Gallery page supports the new service categories (“Sofa Upholstery & New Sofa Sets” and “Majlis / Arabic Seating”) as filter tabs even when there are no media items yet, while keeping the existing service-category filtering behavior for populated categories.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-30-user-uploaded-images-as-static-frontend-assets-and-integrate-them-into-the-site-s-gallery-and-service-section-mediastrips-by-assigning-each-image-to-the-most-appropriate-existing-service-category-matching-services-ts-ids-and-adding-corresponding-entries-to-frontend-src-content-gallerymedia-ts",
+      "title": "Add the 30 user-uploaded images as static frontend assets and integrate them into the site’s Gallery and Service-section MediaStrips by assigning each image to the most appropriate existing service category (matching `services.ts` IDs) and adding corresponding entries to `frontend/src/content/galleryMedia.ts`.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-the-uploaded-saq-logo-image-img-20260205-wa0001-1-jpg-as-the-site-brand-mark-in-the-header-and-footer-and-update-user-facing-metadata-to-reflect-saq-branding-including-the-html-document-title-ensure-no-user-facing-text-contains-the-placeholder-brand-aurum-anywhere-in-the-frontend",
+      "title": "Use the uploaded SAQ logo image (`IMG-20260205-WA0001-1.jpg`) as the site brand mark in the header and footer, and update user-facing metadata to reflect SAQ branding (including the HTML document title). Ensure no user-facing text contains the placeholder brand “AURUM” anywhere in the frontend.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-visual-presentation-of-the-saq-brand-mark-so-it-no-longer-looks-ugly-ensure-the-site-uses-the-correct-provided-saq-logo-asset-consistently-and-render-it-with-clean-sizing-spacing-and-crisp-quality-in-both-the-header-and-footer",
+      "title": "Improve the visual presentation of the SAQ brand mark so it no longer looks “ugly”: ensure the site uses the correct provided SAQ logo asset consistently and render it with clean sizing, spacing, and crisp quality in both the Header and Footer.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-same-image-correction-cleanup-treatment-used-for-the-saq-logo-to-all-other-portfolio-gallery-images-currently-referenced-by-the-site-regenerate-the-corrected-versions-as-new-static-assets-and-update-the-frontend-to-use-the-regenerated-assets-everywhere-those-images-appear-gallery-page-medialightbox-and-any-service-mediastrips-that-pull-from-the-gallery-media-list",
+      "title": "Apply the same image correction/cleanup treatment used for the SAQ logo to all other portfolio/gallery images currently referenced by the site, regenerate the corrected versions as new static assets, and update the frontend to use the regenerated assets everywhere those images appear (Gallery page, MediaLightbox, and any service MediaStrips that pull from the gallery media list).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-identify-and-fix-the-error-reported-in-the-current-deployed-draft-so-the-portfolio-site-runs-without-runtime-errors-and-builds-successfully-no-typescript-errors-routing-errors-or-missing-asset-path-errors",
+      "title": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rename-the-primary-navigation-and-footer-link-label-from-gallery-to-portfolio-while-keeping-the-existing-route-path-gallery-and-ensuring-the-gallery-page-header-and-seo-relevant-page-title-heading-remain-consistent-and-user-friendly",
+      "title": "Rename the primary navigation and footer link label from \"Gallery\" to \"Portfolio\" while keeping the existing route path `/gallery` and ensuring the Gallery page header and SEO-relevant page title/heading remain consistent and user-friendly.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deploy-publish-the-regenerated-build-and-provide-the-direct-live-url-to-the-portfolio-page-the-deployed-site-url-plus-gallery-as-the-direct-link-of-our-portfolio",
+      "title": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus `/gallery`) as the \"direct link of our portfolio\".",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -98,6 +177,66 @@
       "id": "AR-4",
       "summary": "Integrate/feature social media links (Instagram, TikTok, Snapchat) and source photos/videos from those platforms for site content",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a dedicated “Majlis / Arabic Seating” service section/page as part of the service-based site organization",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Replace any placeholder brand/name text “AURUM” with “SAQ” throughout the website UI/content",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Update the site theme styling (colors/typography/components) to a new selected theme direction",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add the customer-provided images into the appropriate service sections and gallery areas",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Replace any placeholder brand/name text “AURUM” with “SAQ” across the entire frontend (all pages, header/footer branding, navigation labels, headings, alt text, and any metadata such as the HTML document title) so that “AURUM” is no longer visible or present in user-facing content.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Fix the previous build/deployment failure by ensuring the project builds successfully after media and branding updates, with all asset paths valid and no TypeScript or routing errors.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Apply the same correction/cleanup treatment used for the SAQ logo to the other site images and regenerate updated versions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Provide the live portfolio website link in chat (deploy/publish the current build and share URL)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Publish/deploy the current portfolio website build and provide the live website URL in chat.",
+      "reqIds": [
+        "REQ-17"
+      ],
       "status": "pending"
     }
   ],

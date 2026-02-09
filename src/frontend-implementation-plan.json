@@ -1,308 +1,163 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Shams Al Qamar Furniture — multi-page portfolio website (responsive, services, gallery, contact)",
+  "title": "Repair build/runtime issues and relabel Gallery as Portfolio while preserving /gallery",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Build a responsive multi-page marketing site with clear top navigation and English-only content for “Shams Al Qamar Furniture”.",
+      "id": "REQ-18",
+      "summary": "Fix build/runtime failures by correcting route-safe UI code and ensuring all referenced static asset paths resolve (no TS/routing/404 asset issues).",
       "acceptanceCriteria": [
-        "Site loads as a responsive marketing website with a clear top navigation and distinct pages/sections.",
-        "Company name is displayed as “Shams Al Qamar Furniture”.",
-        "All user-facing text is in English."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Create the root app shell with website-like navigation and page routing (Home, About, Vision & Mission, Services, Gallery/Work, Contact) and ensure the company name “Shams Al Qamar Furniture” is used in UI text."
-        },
-        {
-          "path": "frontend/src/components/layout/SiteLayout.tsx",
-          "operation": "create",
-          "description": "Create a shared layout wrapper that provides consistent header/footer placement and responsive page container spacing across all pages."
-        },
-        {
-          "path": "frontend/src/components/layout/Header.tsx",
-          "operation": "create",
-          "description": "Create a responsive header with top navigation links to all required pages/sections. Use shadcn-ui components (e.g., NavigationMenu/Button/Sheet as appropriate) to implement a professional responsive nav; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/layout/Footer.tsx",
-          "operation": "create",
-          "description": "Create a footer containing navigation shortcuts and key business info (contact summary + social links) to reinforce discoverability."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "create",
-          "description": "Create the Home page with marketing hero/title content (using English copy) and clear CTAs to Services, Gallery, and Contact."
-        },
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "create",
-          "description": "Create an About page that presents the provided English company description with readable formatting."
-        },
-        {
-          "path": "frontend/src/pages/VisionMissionPage.tsx",
-          "operation": "create",
-          "description": "Create a Vision & Mission page that displays the provided statements prominently and consistently styled."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "create",
-          "description": "Create a Services overview page that links/jumps to distinct service sections and provides scannable summaries."
-        },
-        {
-          "path": "frontend/src/pages/GalleryPage.tsx",
-          "operation": "create",
-          "description": "Create a Gallery/Work page with category filtering and support for both images and videos from local/static assets."
-        },
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "create",
-          "description": "Create a Contact page with email/phone/location and click-to-contact links."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Create the global stylesheet entry used by frontend/src/main.tsx, including base typography and layout defaults appropriate for a marketing site."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Apply a cohesive interiors/furniture visual theme (warm neutrals + black/gold accents), consistent typography/spacing, and avoid a blue/purple look.",
-      "acceptanceCriteria": [
-        "A single, consistent design system is applied across the site (typography scale, buttons/links, section headers, spacing).",
-        "Theme is not primarily blue/purple.",
-        "Layout and styling look intentional and brand-appropriate for an interiors/furniture business."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Define warm-neutral theme CSS variables (background/foreground, card, muted, accent, borders) and global typography rules to avoid default/template look and avoid blue/purple dominance."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind theme tokens (fonts, shadows, and optional custom colors for warm neutrals + gold accents) to enforce consistent spacing/typography across pages."
-        },
-        {
-          "path": "frontend/src/components/branding/SectionHeader.tsx",
-          "operation": "create",
-          "description": "Create a reusable section header component (title + optional subtitle) for consistent hierarchy across pages; use shadcn-ui typography-friendly primitives (e.g., Card) only as composed building blocks; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/branding/PrimaryButton.tsx",
-          "operation": "create",
-          "description": "Create a reusable primary CTA button wrapper with consistent styling; compose shadcn-ui Button to keep consistent interactions; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/layout/SiteLayout.tsx",
-          "operation": "modify",
-          "description": "Apply consistent page padding, max-width containers, and section spacing so all pages share the same layout rhythm."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Implement core pages/sections (Home/Title, About, Vision & Mission, Services overview) using the provided business info including exact tagline and a visible QR code block.",
-      "acceptanceCriteria": [
-        "Home/Title area includes the company name and the exact tagline text.",
-        "Vision and Mission statements appear exactly as provided.",
-        "About section includes the provided paragraph content (can be edited for formatting only, not meaning).",
-        "A QR code block is visible on the Home/Title page (QR destination can be a site URL/contact link)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/siteCopy.ts",
-          "operation": "create",
-          "description": "Add a single source of truth for the provided English copy: company name, exact tagline “Crafting Elegance, Tailoring Spaces”, About paragraph, and Vision/Mission statements to ensure consistent reuse across pages."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Implement the Home/Title area to display company name, exact tagline text, a founder/role placeholder line, a contact summary snippet, and a dedicated QR code block."
-        },
-        {
-          "path": "frontend/src/components/branding/QRCodeBlock.tsx",
-          "operation": "create",
-          "description": "Create a QR code block component that renders a scannable QR as SVG for a fixed destination (e.g., the Contact page URL), without adding new dependencies. Ensure it is visibly framed/styled to fit the interiors theme."
-        },
-        {
-          "path": "frontend/src/content/qrMatrix.ts",
-          "operation": "create",
-          "description": "Store a precomputed QR matrix (for the chosen destination) as a plain data export to support QRCodeBlock rendering without external libraries."
-        },
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Render the About content from frontend/src/content/siteCopy.ts with formatting-only adjustments (headings/paragraph spacing) while preserving meaning."
-        },
-        {
-          "path": "frontend/src/pages/VisionMissionPage.tsx",
-          "operation": "modify",
-          "description": "Render Vision & Mission statements from frontend/src/content/siteCopy.ts exactly as provided, using consistent section styling."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Ensure the Services overview section exists and uses the provided outline (“What We Do/Services overview”) with clear navigation to each service category section."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add clearly separated service sections (or dedicated pages) for each service category with descriptive copy, additional offerings list, and media slots.",
-      "acceptanceCriteria": [
-        "Each service category is presented as its own page or clearly distinct section with heading and summary.",
-        "Services listed by the user are all present somewhere on the Services overview and/or service detail sections.",
-        "Each service category includes a gallery/media area ready to display images/videos."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/services.ts",
-          "operation": "create",
-          "description": "Define structured service content (Curtains & Drapes incl. motorized, Wallpaper Solutions, Full Interior Fit-outs, Turnkey Service) plus the additional offerings list (carpet/PVC carpet, roller/vertical blinds, parquet flooring, sofa upholstery/new sofa sets)."
-        },
-        {
-          "path": "frontend/src/components/services/ServiceSection.tsx",
-          "operation": "create",
-          "description": "Create a reusable service section component with: heading, descriptive copy, key bullets, and a media slot area. Compose shadcn-ui components (e.g., Card/Tabs/AspectRatio as appropriate) for consistent UI; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/media/MediaStrip.tsx",
-          "operation": "create",
-          "description": "Create a media strip/grid component that can render image and video thumbnails (from local/static assets) and reserve space for future additions; compose shadcn-ui components (e.g., Dialog for lightbox) if used; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Implement distinct sections for each service category using frontend/src/content/services.ts and include a media area per category. Include the additional offerings list in an appropriate section (e.g., “Additional Offerings”)."
-        },
-        {
-          "path": "frontend/src/components/layout/Header.tsx",
-          "operation": "modify",
-          "description": "Ensure navigation includes a clear route to Services and optionally in-page anchors/jump menu for the individual service categories."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Implement a Gallery/Work area that supports images and videos, grouped/filtered by service category, using only manually added local/static media (no scraping).",
-      "acceptanceCriteria": [
-        "Gallery supports both images and videos (common web formats) and is viewable on mobile and desktop.",
-        "Gallery content is grouped/filtered by service category.",
-        "Implementation does not attempt to programmatically scrape Instagram/TikTok/Snapchat; it only displays local/static assets added to the project."
+        "`npm`/build pipeline completes successfully with no TypeScript errors.",
+        "App loads all routes (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) without blank screens or uncaught exceptions.",
+        "Browser console shows no uncaught errors on initial load and while navigating to the Gallery/Portfolio page.",
+        "All referenced static assets used by the UI (logo, hero background, gallery images) resolve to valid paths (no 404s for `/assets/...`)."
       ],
       "file_operations": [
         {
           "path": "frontend/src/content/galleryMedia.ts",
-          "operation": "create",
-          "description": "Create a curated manifest listing gallery items (type image/video, category, title, and local public asset path). Keep it compatible with manually added media files only."
-        },
-        {
-          "path": "frontend/src/pages/GalleryPage.tsx",
           "operation": "modify",
-          "description": "Implement a responsive gallery view that can filter/group by service category and render both images and videos sourced from frontend/src/content/galleryMedia.ts. Use shadcn-ui Tabs/ToggleGroup/Select for filtering UI if appropriate; Verify the component's usage instructions before implementing."
+          "description": "Audit and correct gallery item `path` values so every referenced image exists under the public assets folder (prefer generated clean images when available, otherwise fall back to existing local originals). Ensure there are no references to non-existent `/assets/generated/...` files that would cause 404s and broken gallery/lightbox rendering."
         },
         {
-          "path": "frontend/src/components/media/MediaLightbox.tsx",
-          "operation": "create",
-          "description": "Add an optional lightbox/dialog viewer for images and videos to improve UX on both mobile and desktop; compose shadcn-ui Dialog; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/public/assets/gallery/README.txt",
-          "operation": "create",
-          "description": "Add a short note documenting that gallery media must be manually downloaded and placed under frontend/public/assets/gallery (no automated scraping/downloading)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Add a Contact page/section with the provided email, named phone contacts, and location; include click-to-email and click-to-call links; ensure discoverability via nav/footer.",
-      "acceptanceCriteria": [
-        "Contact section includes: shamsalqamar90@gmail.com; LUQMAN DABIR: 971 55 376 7628; AIJAZ AHMAD: 971 554897617; ABDUL BASIT: 971 52 156 4550; and “DEIRA, DUBAI - UAE”.",
-        "Email is a mailto: link and phone numbers are tel: links.",
-        "Contact info is also discoverable from the main navigation and/or footer."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
+          "path": "frontend/src/content/branding.ts",
           "operation": "modify",
-          "description": "Render the exact contact details provided (email + named phone numbers + location) and implement mailto: and tel: links. Use shadcn-ui Card components for readable grouping if desired; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/layout/Header.tsx",
-          "operation": "modify",
-          "description": "Add a prominent navigation link to the Contact page so contact info is discoverable from the main navigation."
-        },
-        {
-          "path": "frontend/src/components/layout/Footer.tsx",
-          "operation": "modify",
-          "description": "Include a condensed contact summary (email + at least one phone + location) in the footer with mailto:/tel: links for discoverability."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Add Instagram, TikTok, and Snapchat links in the header and/or footer using the exact provided URLs and open in a new tab.",
-      "acceptanceCriteria": [
-        "Header/footer shows icons or labeled links for Instagram, TikTok, and Snapchat.",
-        "Links open the exact provided URLs in a new tab."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/socialLinks.ts",
-          "operation": "create",
-          "description": "Centralize the exact social URLs (Instagram/TikTok/Snapchat) in one export to avoid typos and ensure consistency."
-        },
-        {
-          "path": "frontend/src/components/layout/Header.tsx",
-          "operation": "modify",
-          "description": "Add labeled links and/or icons for Instagram, TikTok, and Snapchat using frontend/src/content/socialLinks.ts, opening in a new tab. Compose shadcn-ui Button/Link styling as needed; Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/layout/Footer.tsx",
-          "operation": "modify",
-          "description": "Repeat social links in the footer (icons or labeled links) using frontend/src/content/socialLinks.ts, opening in a new tab."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Add the required generated brand images under frontend/public/assets/generated and use them in the UI (logo in header, hero background on Home) without backend routing.",
-      "acceptanceCriteria": [
-        "Generated images exist at frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
-        "UI renders the logo in the header and the hero background/hero image on the Home page without routing images through the backend.",
-        "Site remains readable and visually consistent when these images are present."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/shams-al-qamar-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the required generated logo asset at the exact path: frontend/public/assets/generated/shams-al-qamar-logo.dim_512x512.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
-          "operation": "create",
-          "description": "Add the required generated hero background asset at the exact path: frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png."
-        },
-        {
-          "path": "frontend/src/components/layout/Header.tsx",
-          "operation": "modify",
-          "description": "Render the generated logo image from frontend/public/assets/generated/shams-al-qamar-logo.dim_512x512.png in the header brand area, ensuring accessible alt text and responsive sizing."
+          "description": "Verify and, if needed, update logo asset references so `brandAssets.logo.src` points to a file that exists at runtime under `frontend/public/assets/generated/` (keep the public `/assets/...` URL form used by the app)."
         },
         {
           "path": "frontend/src/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Use frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png as the Home hero background (or hero media) and ensure text contrast/readability remains strong across breakpoints."
+          "description": "Verify the hero background image reference resolves to a valid static asset path and does not produce 404s (ensure it matches the file placed in `frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png`)."
         },
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/public/assets/generated/saq-logo-clean.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated logo asset to the public folder so it is served at `/assets/generated/saq-logo-clean.dim_512x512.png` (source asset already exists in the repo under `generated/saq-logo-clean.dim_512x512.png`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated hero background image to the public folder so it is served at `/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png` (source asset already exists in the repo under `generated/shams-al-qamar-hero-bg.dim_1920x1080.png`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg`)."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated cleaned gallery photo asset so it is served at `/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg` (source asset already exists in the repo under `generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg`)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Rename the navigation/footer label from “Gallery” to “Portfolio” while keeping the `/gallery` route and keeping the gallery UI behavior (tabs/lightbox) unchanged.",
+      "acceptanceCriteria": [
+        "Header navigation shows a \"Portfolio\" link that navigates to `/gallery`.",
+        "Footer quick links show \"Portfolio\" and navigate to `/gallery`.",
+        "The `/gallery` page remains accessible directly via URL and continues to function with category tabs and lightbox behavior unchanged."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
           "operation": "modify",
-          "description": "Adjust global styles as needed to maintain readability/contrast when the hero background image is present (e.g., overlay treatment, text colors), while staying within the warm neutral + gold/black theme (no blue/purple theme)."
+          "description": "Update the primary navigation label from \"Gallery\" to \"Portfolio\" while preserving the existing path `/gallery` for both desktop and mobile navigation."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "modify",
+          "description": "Update the footer quick link label from \"Gallery\" to \"Portfolio\" while preserving the existing link destination `/gallery`."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Update the visible page heading to a user-friendly \"Portfolio\" (while keeping the route at `/gallery`) and set a clear document title for SEO (e.g., \"Portfolio | ...\") without changing tab filtering or lightbox behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Provide a direct portfolio link UX in-app (origin + `/gallery`) to share as the portfolio URL after deployment.",
+      "acceptanceCriteria": [
+        "A publicly accessible deployed site URL is produced.",
+        "A direct portfolio URL ending in `/gallery` is produced and loads the portfolio page successfully."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/branding/PortfolioDirectLink.tsx",
+          "operation": "create",
+          "description": "Create a small UI block that computes the direct portfolio URL using the runtime site origin plus `/gallery`, displays it as a clickable link, and offers a copy-to-clipboard action (client-side only; no authentication)."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Wire the new `PortfolioDirectLink` component into the `/gallery` page near the header so users can easily copy/share the direct portfolio link."
         }
       ]
     }

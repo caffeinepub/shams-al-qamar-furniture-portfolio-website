@@ -58,6 +58,32 @@ export const services: Service[] = [
       'Post-installation support',
     ],
   },
+  {
+    id: 'sofa-upholstery',
+    title: 'Sofa Upholstery & New Sofa Sets',
+    description:
+      'Breathe new life into your existing furniture or create custom seating solutions from scratch. Our expert craftsmen specialize in premium upholstery work and bespoke sofa design, offering a wide selection of fabrics, colors, and styles to match your interior vision.',
+    features: [
+      'Professional reupholstery services',
+      'Custom-designed new sofa sets',
+      'Premium fabric selection',
+      'Expert craftsmanship',
+      'Personalized design consultation',
+    ],
+  },
+  {
+    id: 'majlis-seating',
+    title: 'Majlis / Arabic Seating',
+    description:
+      'Create an authentic and luxurious majlis space with our traditional Arabic seating solutions. We specialize in custom majlis designs that blend cultural heritage with modern comfort, featuring rich fabrics, intricate details, and traditional craftsmanship.',
+    features: [
+      'Traditional majlis designs',
+      'Custom floor seating arrangements',
+      'Luxurious fabrics and cushions',
+      'Cultural authenticity',
+      'Complete majlis room setup',
+    ],
+  },
 ];
 
 export const additionalOfferings = [
@@ -76,13 +102,5 @@ export const additionalOfferings = [
   {
     title: 'Parquet Flooring',
     description: 'Classic and durable flooring options',
-  },
-  {
-    title: 'Sofa Upholstery',
-    description: 'Refresh your existing furniture',
-  },
-  {
-    title: 'New Sofa Sets',
-    description: 'Custom-designed seating solutions',
   },
 ];

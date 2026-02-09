@@ -1,187 +1,115 @@
 {
   "kind": "build_request",
-  "title": "Shams Al Qamar Furniture portfolio website (multi-page, service sections, social media gallery, contact/location)",
-  "priority": "normal",
+  "title": "Fix runtime/build error, regenerate working build, and provide direct portfolio link",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a responsive, multi-page portfolio website for “Shams Al Qamar Furniture” with website-like navigation (not a single slide deck), using the provided English copy as the primary content.",
+      "id": "REQ-18",
+      "text": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-3"
         ],
         "quotes": [
-          "Make a portfolio for furniture business",
-          "Make website like pages",
-          "About Shams Al Qamar Furniture..."
+          "there is an error please regenerate it porperly"
         ]
       },
       "acceptanceCriteria": [
-        "Site loads as a responsive marketing website with a clear top navigation and distinct pages/sections.",
-        "Company name is displayed as “Shams Al Qamar Furniture”.",
-        "All user-facing text is in English."
+        "`npm`/build pipeline completes successfully with no TypeScript errors.",
+        "App loads all routes (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) without blank screens or uncaught exceptions.",
+        "Browser console shows no uncaught errors on initial load and while navigating to the Gallery/Portfolio page.",
+        "All referenced static assets used by the UI (logo, hero background, gallery images) resolve to valid paths (no 404s for `/assets/...`)."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Implement a coherent visual theme consistent across all pages (colors, typography, spacing, component style) with an interiors/furniture aesthetic; avoid default/template look. Do not use a blue/purple theme.",
+      "id": "REQ-19",
+      "text": "Rename the primary navigation and footer link label from \"Gallery\" to \"Portfolio\" while keeping the existing route path `/gallery` and ensuring the Gallery page header and SEO-relevant page title/heading remain consistent and user-friendly.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-3"
         ],
         "quotes": [
-          "try to make website like pages and theme has shown in the video"
+          "then give me the direct link of our portfolio"
         ]
       },
       "acceptanceCriteria": [
-        "A single, consistent design system is applied across the site (typography scale, buttons/links, section headers, spacing).",
-        "Theme is not primarily blue/purple.",
-        "Layout and styling look intentional and brand-appropriate for an interiors/furniture business."
+        "Header navigation shows a \"Portfolio\" link that navigates to `/gallery`.",
+        "Footer quick links show \"Portfolio\" and navigate to `/gallery`.",
+        "The `/gallery` page remains accessible directly via URL and continues to function with category tabs and lightbox behavior unchanged."
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Add core pages/sections reflecting the user-provided outline and business information: (1) Home/Title (company name + tagline “Crafting Elegance, Tailoring Spaces” + founder/role line placeholder + contact summary + QR code block), (2) About, (3) Vision & Mission, (4) What We Do/Services overview.",
-      "target": "frontend",
+      "id": "REQ-20",
+      "text": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus `/gallery`) as the \"direct link of our portfolio\".",
+      "target": "unknown",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-3"
         ],
         "quotes": [
-          "Company name: Shams Al Qamar Furniture",
-          "Tagline: “Crafting Elegance, Tailoring Spaces”",
-          "Vision & Mission",
-          "What We Do"
+          "then give me the direct link of our portfolio ."
         ]
       },
       "acceptanceCriteria": [
-        "Home/Title area includes the company name and the exact tagline text.",
-        "Vision and Mission statements appear exactly as provided.",
-        "About section includes the provided paragraph content (can be edited for formatting only, not meaning).",
-        "A QR code block is visible on the Home/Title page (QR destination can be a site URL/contact link)."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Create dedicated service pages or clearly separated service sections for each category, with descriptive copy and media slots: Curtains & Drapes (including motorized curtains), Wallpaper Solutions, Full Interior Fit-outs (residential & commercial), Turnkey Service (consultation to installation), plus additional offerings list (carpet/PVC carpet installation, roller/vertical blinds, parquet flooring, sofa upholstery/new sofa sets).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "create and try to section separately like curtains and drapes ,wallpaper solutions, Full interior, Turnkey service likewise",
-          "Custom-made curtains and motorized curtains",
-          "Carpet and PVC carpet installation",
-          "Wallpaper installation",
-          "Roller blinds and vertical blinds",
-          "Parquet flooring solutions",
-          "Sofa upholstery and new sofa sets"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Each service category is presented as its own page or clearly distinct section with heading and summary.",
-        "Services listed by the user are all present somewhere on the Services overview and/or service detail sections.",
-        "Each service category includes a gallery/media area ready to display images/videos."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Add a “Gallery/Work” area that can display photos and videos, organized by the same service categories (Curtains & Drapes, Wallpaper, Full Interior, Turnkey, etc.). Populate the gallery using manually provided/downloaded media assets sourced from the provided social links (no automated scraping).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "capturer photos and videos from are social plateforms mentioned in the details",
-          "https://www.instagram.com/shams__alqamarfurniture?igsh=NDliYmxmc2E4bG9z&utm_source=qr",
-          "https://www.tiktok.com/@shams.al.qamar.fu?_r=1&_t=ZS-92UctMwlvjL",
-          "https://www.snapchat.com/add/shamsalqama2025?share_id=yDm8o7wfNso&locale=en-GB"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Gallery supports both images and videos (common web formats) and is viewable on mobile and desktop.",
-        "Gallery content is grouped/filtered by service category.",
-        "Implementation does not attempt to programmatically scrape Instagram/TikTok/Snapchat; it only displays local/static assets added to the project."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Add a Contact page/section that prominently displays the provided email, phone contacts (with names), and location; include click-to-call and click-to-email links where supported.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "ADD contact details as shamsalqamar90@gmail.com",
-          "phone numbers: 1. LUQMAN DABIR : 971 55 376 7628 2. AIJAZ AHMAD : 971 554897617 3. ABDUL BASIT : 971 52 156 4550",
-          "LOCATION :DEIRA, DUBAI - UAE"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Contact section includes: shamsalqamar90@gmail.com; LUQMAN DABIR: 971 55 376 7628; AIJAZ AHMAD: 971 554897617; ABDUL BASIT: 971 52 156 4550; and “DEIRA, DUBAI - UAE”.",
-        "Email is a mailto: link and phone numbers are tel: links.",
-        "Contact info is also discoverable from the main navigation and/or footer."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Add social media links (Instagram, TikTok, Snapchat) in the header and/or footer, using the exact URLs provided by the user.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "https://www.instagram.com/shams__alqamarfurniture?igsh=NDliYmxmc2E4bG9z&utm_source=qr",
-          "https://www.tiktok.com/@shams.al.qamar.fu?_r=1&_t=ZS-92UctMwlvjL",
-          "https://www.snapchat.com/add/shamsalqama2025?share_id=yDm8o7wfNso&locale=en-GB"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Header/footer shows icons or labeled links for Instagram, TikTok, and Snapchat.",
-        "Links open the exact provided URLs in a new tab."
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Add required generated brand images to the project as static assets under frontend/public/assets/generated and use them in the UI (e.g., header/logo area, hero section).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Make a portfolio for furniture business"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Generated images exist at frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
-        "UI renders the logo in the header and the hero background/hero image on the Home page without routing images through the backend.",
-        "Site remains readable and visually consistent when these images are present."
+        "A publicly accessible deployed site URL is produced.",
+        "A direct portfolio URL ending in `/gallery` is produced and loads the portfolio page successfully."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or any files under frontend/src/components/ui (compose them instead).",
-    "Do not implement automated scraping/downloading of Instagram/TikTok/Snapchat content; only support manually added media assets.",
-    "Keep the backend as a single Motoko actor; do not introduce additional backend services."
+    "Do not edit files under `frontend/src/components/ui` (read-only Shadcn components).",
+    "Do not edit immutable hook/bootstrap files: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`.",
+    "Backend must remain a single Motoko actor in `backend/main.mo`; only add `backend/migration.mo` if a state upgrade is required.",
+    "No automated scraping of social media content; use only existing local/static assets already in the repo."
   ],
   "nonGoals": [
-    "E-commerce features (product catalog with checkout, payments, shipping).",
-    "User accounts/authentication beyond what the template provides.",
-    "Admin CMS for uploading/editing content in-app.",
-    "Real-time chat, push notifications, or email sending integrations."
+    "Adding new pages beyond the existing routes.",
+    "Changing the service taxonomy or gallery category behavior (other than the link label rename requested).",
+    "Introducing third-party authentication providers beyond Internet Identity."
   ],
   "imageRequirements": {
-    "required": [
-      "Minimal premium wordmark logo in black/gold on transparent background (shams-al-qamar-logo.dim_512x512.png)",
-      "Elegant interior-themed hero background with warm neutral tones and subtle texture/pattern (shams-al-qamar-hero-bg.dim_1920x1080.png)"
-    ],
-    "edits": []
+    "required": [],
+    "edits": [
+      "Clean and enhance gallery photo (IMG-20260205-WA0002-1.jpg > IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0003-1.jpg > IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0004-1.jpg > IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0005-1.jpg > IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0006-1.jpg > IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0007-1.jpg > IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0008-1.jpg > IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0009-1.jpg > IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0011-1.jpg > IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0012-1.jpg > IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0013-1.jpg > IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0016-1.jpg > IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0017-1.jpg > IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0018-1.jpg > IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0019-1.jpg > IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0020-1.jpg > IMG-20260205-WA0020-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0025-1.jpg > IMG-20260205-WA0025-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0027-1.jpg > IMG-20260205-WA0027-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0028-1.jpg > IMG-20260205-WA0028-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0030-1.jpg > IMG-20260205-WA0030-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0032-1.jpg > IMG-20260205-WA0032-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0040-1.jpg > IMG-20260205-WA0040-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0042-1.jpg > IMG-20260205-WA0042-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0043-1.jpg > IMG-20260205-WA0043-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0044-1.jpg > IMG-20260205-WA0044-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0045-1.jpg > IMG-20260205-WA0045-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0051-1.jpg > IMG-20260205-WA0051-1-clean.dim_1600x1200.jpg)",
+      "Clean and enhance gallery photo (IMG-20260205-WA0053-1.jpg > IMG-20260205-WA0053-1-clean.dim_1600x1200.jpg)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

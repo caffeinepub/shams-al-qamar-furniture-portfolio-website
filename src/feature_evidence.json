@@ -2,106 +2,29 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-responsive-multi-page-portfolio-website-for-shams-al-qamar-furniture-with-website-like-navigation-not-a-single-slide-deck-using-the-provided-english-copy-as-the-primary-content",
-      "featureTitle": "Create a responsive, multi-page portfolio website for “Shams Al Qamar Furniture” with website-like navigation (not a single slide deck), using the provided English copy as the primary content.",
+      "featureId": "feature-identify-and-fix-the-error-reported-in-the-current-deployed-draft-so-the-portfolio-site-runs-without-runtime-errors-and-builds-successfully-no-typescript-errors-routing-errors-or-missing-asset-path-errors",
+      "featureTitle": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
       "files": [
-        "frontend/src/App.tsx",
+        "frontend/src/content/galleryMedia.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-rename-the-primary-navigation-and-footer-link-label-from-gallery-to-portfolio-while-keeping-the-existing-route-path-gallery-and-ensuring-the-gallery-page-header-and-seo-relevant-page-title-heading-remain-consistent-and-user-friendly",
+      "featureTitle": "Rename the primary navigation and footer link label from \"Gallery\" to \"Portfolio\" while keeping the existing route path `/gallery` and ensuring the Gallery page header and SEO-relevant page title/heading remain consistent and user-friendly.",
+      "files": [
         "frontend/src/components/layout/Footer.tsx",
         "frontend/src/components/layout/Header.tsx",
-        "frontend/src/components/layout/SiteLayout.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/AboutPage.tsx",
-        "frontend/src/pages/ContactPage.tsx",
-        "frontend/src/pages/GalleryPage.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/ServicesPage.tsx",
-        "frontend/src/pages/VisionMissionPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-a-coherent-visual-theme-consistent-across-all-pages-colors-typography-spacing-component-style-with-an-interiors-furniture-aesthetic-avoid-default-template-look-do-not-use-a-blue-purple-theme",
-      "featureTitle": "Implement a coherent visual theme consistent across all pages (colors, typography, spacing, component style) with an interiors/furniture aesthetic; avoid default/template look. Do not use a blue/purple theme.",
-      "files": [
-        "frontend/src/components/branding/SectionHeader.tsx",
-        "frontend/src/components/layout/SiteLayout.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-core-pages-sections-reflecting-the-user-provided-outline-and-business-information-1-home-title-company-name-tagline-crafting-elegance-tailoring-spaces-founder-role-line-placeholder-contact-summary-qr-code-block-2-about-3-vision-mission-4-what-we-do-services-overview",
-      "featureTitle": "Add core pages/sections reflecting the user-provided outline and business information: (1) Home/Title (company name + tagline “Crafting Elegance, Tailoring Spaces” + founder/role line placeholder + contact summary + QR code block), (2) About, (3) Vision & Mission, (4) What We Do/Services overview.",
-      "files": [
-        "frontend/src/components/branding/QRCodeBlock.tsx",
-        "frontend/src/content/qrMatrix.ts",
-        "frontend/src/content/siteCopy.ts",
-        "frontend/src/pages/AboutPage.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/ServicesPage.tsx",
-        "frontend/src/pages/VisionMissionPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-dedicated-service-pages-or-clearly-separated-service-sections-for-each-category-with-descriptive-copy-and-media-slots-curtains-drapes-including-motorized-curtains-wallpaper-solutions-full-interior-fit-outs-residential-commercial-turnkey-service-consultation-to-installation-plus-additional-offerings-list-carpet-pvc-carpet-installation-roller-vertical-blinds-parquet-flooring-sofa-upholstery-new-sofa-sets",
-      "featureTitle": "Create dedicated service pages or clearly separated service sections for each category, with descriptive copy and media slots: Curtains & Drapes (including motorized curtains), Wallpaper Solutions, Full Interior Fit-outs (residential & commercial), Turnkey Service (consultation to installation), plus additional offerings list (carpet/PVC carpet installation, roller/vertical blinds, parquet flooring, sofa upholstery/new sofa sets).",
-      "files": [
-        "frontend/src/components/layout/Header.tsx",
-        "frontend/src/components/media/MediaStrip.tsx",
-        "frontend/src/components/services/ServiceSection.tsx",
-        "frontend/src/content/services.ts",
-        "frontend/src/pages/ServicesPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-gallery-work-area-that-can-display-photos-and-videos-organized-by-the-same-service-categories-curtains-drapes-wallpaper-full-interior-turnkey-etc-populate-the-gallery-using-manually-provided-downloaded-media-assets-sourced-from-the-provided-social-links-no-automated-scraping",
-      "featureTitle": "Add a “Gallery/Work” area that can display photos and videos, organized by the same service categories (Curtains & Drapes, Wallpaper, Full Interior, Turnkey, etc.). Populate the gallery using manually provided/downloaded media assets sourced from the provided social links (no automated scraping).",
-      "files": [
-        "frontend/src/components/media/MediaLightbox.tsx",
-        "frontend/src/content/galleryMedia.ts",
         "frontend/src/pages/GalleryPage.tsx"
       ],
       "components": [
@@ -112,17 +35,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-5"
+        "REQ-19"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-a-contact-page-section-that-prominently-displays-the-provided-email-phone-contacts-with-names-and-location-include-click-to-call-and-click-to-email-links-where-supported",
-      "featureTitle": "Add a Contact page/section that prominently displays the provided email, phone contacts (with names), and location; include click-to-call and click-to-email links where supported.",
+      "featureId": "feature-deploy-publish-the-regenerated-build-and-provide-the-direct-live-url-to-the-portfolio-page-the-deployed-site-url-plus-gallery-as-the-direct-link-of-our-portfolio",
+      "featureTitle": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus `/gallery`) as the \"direct link of our portfolio\".",
       "files": [
-        "frontend/src/components/layout/Footer.tsx",
-        "frontend/src/components/layout/Header.tsx",
-        "frontend/src/pages/ContactPage.tsx"
+        "frontend/src/components/branding/PortfolioDirectLink.tsx",
+        "frontend/src/pages/GalleryPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -132,47 +54,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-social-media-links-instagram-tiktok-snapchat-in-the-header-and-or-footer-using-the-exact-urls-provided-by-the-user",
-      "featureTitle": "Add social media links (Instagram, TikTok, Snapchat) in the header and/or footer, using the exact URLs provided by the user.",
-      "files": [
-        "frontend/src/components/layout/Footer.tsx",
-        "frontend/src/components/layout/Header.tsx",
-        "frontend/src/content/socialLinks.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-required-generated-brand-images-to-the-project-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-e-g-header-logo-area-hero-section",
-      "featureTitle": "Add required generated brand images to the project as static assets under frontend/public/assets/generated and use them in the UI (e.g., header/logo area, hero section).",
-      "files": [
-        "frontend/src/components/layout/Header.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
+        "REQ-20"
       ],
       "confidence": "high"
     }
