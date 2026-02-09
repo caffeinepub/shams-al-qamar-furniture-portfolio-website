@@ -1,106 +1,19 @@
 {
   "kind": "build_request",
-  "title": "Fix runtime/build error, regenerate working build, and provide direct portfolio link",
-  "priority": "high",
-  "requirements": [
-    {
-      "id": "REQ-18",
-      "text": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "there is an error please regenerate it porperly"
-        ]
-      },
-      "acceptanceCriteria": [
-        "`npm`/build pipeline completes successfully with no TypeScript errors.",
-        "App loads all routes (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) without blank screens or uncaught exceptions.",
-        "Browser console shows no uncaught errors on initial load and while navigating to the Gallery/Portfolio page.",
-        "All referenced static assets used by the UI (logo, hero background, gallery images) resolve to valid paths (no 404s for `/assets/...`)."
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "text": "Rename the primary navigation and footer link label from \"Gallery\" to \"Portfolio\" while keeping the existing route path `/gallery` and ensuring the Gallery page header and SEO-relevant page title/heading remain consistent and user-friendly.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "then give me the direct link of our portfolio"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Header navigation shows a \"Portfolio\" link that navigates to `/gallery`.",
-        "Footer quick links show \"Portfolio\" and navigate to `/gallery`.",
-        "The `/gallery` page remains accessible directly via URL and continues to function with category tabs and lightbox behavior unchanged."
-      ]
-    },
-    {
-      "id": "REQ-20",
-      "text": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus `/gallery`) as the \"direct link of our portfolio\".",
-      "target": "unknown",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "then give me the direct link of our portfolio ."
-        ]
-      },
-      "acceptanceCriteria": [
-        "A publicly accessible deployed site URL is produced.",
-        "A direct portfolio URL ending in `/gallery` is produced and loads the portfolio page successfully."
-      ]
-    }
-  ],
+  "title": "Confirm direct portfolio link generation (no new code changes)",
+  "priority": "normal",
+  "requirements": [],
   "constraints": [
-    "Do not edit files under `frontend/src/components/ui` (read-only Shadcn components).",
-    "Do not edit immutable hook/bootstrap files: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`.",
-    "Backend must remain a single Motoko actor in `backend/main.mo`; only add `backend/migration.mo` if a state upgrade is required.",
-    "No automated scraping of social media content; use only existing local/static assets already in the repo."
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo)."
   ],
   "nonGoals": [
-    "Adding new pages beyond the existing routes.",
-    "Changing the service taxonomy or gallery category behavior (other than the link label rename requested).",
-    "Introducing third-party authentication providers beyond Internet Identity."
+    "Add new UI features unrelated to generating/sharing the direct Portfolio link.",
+    "Change routing structure; keep the Portfolio route path as /gallery."
   ],
   "imageRequirements": {
     "required": [],
-    "edits": [
-      "Clean and enhance gallery photo (IMG-20260205-WA0002-1.jpg > IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0003-1.jpg > IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0004-1.jpg > IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0005-1.jpg > IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0006-1.jpg > IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0007-1.jpg > IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0008-1.jpg > IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0009-1.jpg > IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0011-1.jpg > IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0012-1.jpg > IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0013-1.jpg > IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0016-1.jpg > IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0017-1.jpg > IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0018-1.jpg > IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0019-1.jpg > IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0020-1.jpg > IMG-20260205-WA0020-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0025-1.jpg > IMG-20260205-WA0025-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0027-1.jpg > IMG-20260205-WA0027-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0028-1.jpg > IMG-20260205-WA0028-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0030-1.jpg > IMG-20260205-WA0030-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0032-1.jpg > IMG-20260205-WA0032-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0040-1.jpg > IMG-20260205-WA0040-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0042-1.jpg > IMG-20260205-WA0042-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0043-1.jpg > IMG-20260205-WA0043-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0044-1.jpg > IMG-20260205-WA0044-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0045-1.jpg > IMG-20260205-WA0045-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0051-1.jpg > IMG-20260205-WA0051-1-clean.dim_1600x1200.jpg)",
-      "Clean and enhance gallery photo (IMG-20260205-WA0053-1.jpg > IMG-20260205-WA0053-1-clean.dim_1600x1200.jpg)"
-    ]
+    "edits": []
   },
   "userProfileUpdate": {
     "goalsToAdd": [],

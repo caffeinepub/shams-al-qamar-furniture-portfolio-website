@@ -1,115 +1,20 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T19:25:13.171Z",
+  "generatedAt": "2026-02-09T19:30:29.300Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
-    "items": [
-      {
-        "id": "REQ-18",
-        "summary": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/content/galleryMedia.ts",
-          "frontend/src/content/branding.ts",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/public/assets/generated/saq-logo-clean.dim_512x512.png",
-          "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
-          "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg"
-        ],
-        "matchedFiles": [
-          "frontend/src/content/galleryMedia.ts",
-          "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
-          "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg"
-        ]
-      },
-      {
-        "id": "REQ-19",
-        "summary": "Rename the primary navigation and footer link label from \"Gallery\" to \"Portfolio\" while keeping the existing route path `/gallery` and ensuring the Gallery page header and SEO-relevant page title/heading remain consistent and user-friendly.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/layout/Header.tsx",
-          "frontend/src/components/layout/Footer.tsx",
-          "frontend/src/pages/GalleryPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/layout/Header.tsx",
-          "frontend/src/components/layout/Footer.tsx",
-          "frontend/src/pages/GalleryPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-20",
-        "summary": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus `/gallery`) as the \"direct link of our portfolio\".",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/branding/PortfolioDirectLink.tsx",
-          "frontend/src/pages/GalleryPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/branding/PortfolioDirectLink.tsx",
-          "frontend/src/pages/GalleryPage.tsx"
-        ]
-      }
-    ]
+    "total": 0,
+    "implemented": 0,
+    "items": []
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
-    "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg",
-    "frontend/src/components/branding/PortfolioDirectLink.tsx",
-    "frontend/src/components/layout/Footer.tsx",
-    "frontend/src/components/layout/Header.tsx",
-    "frontend/src/content/galleryMedia.ts",
-    "frontend/src/pages/GalleryPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",
