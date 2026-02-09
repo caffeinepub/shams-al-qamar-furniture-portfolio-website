@@ -4,6 +4,7 @@ import PortfolioDirectLink from '@/components/branding/PortfolioDirectLink';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import MediaLightbox from '@/components/media/MediaLightbox';
 import { galleryMedia, GalleryItem } from '@/content/galleryMedia';
+import { publicAsset } from '@/lib/publicAsset';
 import { services } from '@/content/services';
 import { Card } from '@/components/ui/card';
 import { Play, ImageOff } from 'lucide-react';
@@ -77,14 +78,14 @@ export default function GalleryPage() {
                       <div className="relative aspect-square overflow-hidden bg-muted">
                         {item.type === 'image' ? (
                           <img
-                            src={item.path}
+                            src={publicAsset(item.path)}
                             alt={item.title}
                             className="h-full w-full object-cover transition-transform group-hover:scale-105"
                           />
                         ) : (
                           <>
                             <video
-                              src={item.path}
+                              src={publicAsset(item.path)}
                               className="h-full w-full object-cover"
                               muted
                               playsInline

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import QRCodeBlock from '@/components/branding/QRCodeBlock';
 import { siteCopy, contactInfo } from '@/content/siteCopy';
+import { publicAsset } from '@/lib/publicAsset';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: 'url(/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png)',
+            backgroundImage: `url(${publicAsset('assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png')})`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />

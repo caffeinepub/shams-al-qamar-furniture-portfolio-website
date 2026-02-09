@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shams Al Qamar Furniture</title>
+    <script>
+      // SPA fallback: redirect to index.html with the original path preserved
+      (function() {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        
+        // Redirect to index.html, preserving the path for client-side routing
+        window.location.replace(
+          window.location.origin + 
+          '/' + 
+          (search || '') + 
+          (hash || '')
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>

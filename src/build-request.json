@@ -1,28 +1,57 @@
 {
   "kind": "build_request",
-  "title": "Confirm direct portfolio link generation (no new code changes)",
-  "priority": "normal",
-  "requirements": [],
+  "title": "Resolve deployment/build failure and publish live portfolio URL",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-30",
+      "text": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "so solve it and give me the result"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A production build completes successfully with no TypeScript errors.",
+        "The deployed site loads without runtime errors in the browser console.",
+        "All routes defined in `frontend/src/App.tsx` (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) render successfully after deployment.",
+        "All media referenced from `frontend/src/content/galleryMedia.ts` resolves to valid URLs (no broken images for Majlis or other categories)."
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "text": "After a successful deployment, provide the live website URL and the direct Portfolio link (the live URL plus `/gallery`) as the shareable portfolio link.",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "so solve it and give me the result"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A live URL to the deployed site is available.",
+        "A direct Portfolio URL ending in `/gallery` is provided."
+      ]
+    }
+  ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Backend must remain a single Motoko actor (all logic in backend/main.mo)."
+    "Backend must remain a single Motoko actor in `backend/main.mo`; only add `backend/migration.mo` if state upgrades are required.",
+    "Do not edit files under `frontend/src/components/ui` or any paths listed in `frontend.immutablePaths` (compose them instead).",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Add new UI features unrelated to generating/sharing the direct Portfolio link.",
-    "Change routing structure; keep the Portfolio route path as /gallery."
+    "Adding new pages or features beyond fixing build/deploy and publishing the live URL.",
+    "Introducing external databases or non-supported backend technologies.",
+    "Adding third-party authentication providers beyond Internet Identity."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

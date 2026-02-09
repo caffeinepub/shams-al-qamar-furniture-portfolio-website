@@ -1,17 +1,19 @@
 import { useState } from 'react';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { useNavigate, useLocation } from '@tanstack/react-router';
 import { Menu, X } from 'lucide-react';
 import { SiInstagram, SiTiktok, SiSnapchat } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { socialLinks } from '@/content/socialLinks';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { brandAssets } from '@/content/branding';
+import { publicAsset } from '@/lib/publicAsset';
+import { socialLinks } from '@/content/socialLinks';
 
 export default function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
+  const navItems = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
     { label: 'Vision & Mission', path: '/vision-mission' },
@@ -20,99 +22,134 @@ export default function Header() {
     { label: 'Contact', path: '/contact' },
   ];
 
+  const isActive = (path: string) => location.pathname === path;
+
+  const handleNavigation = (path: string) => {
+    navigate({ to: path });
+    setIsOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
+        <button
+          onClick={() => handleNavigation('/')}
+          className="flex items-center gap-3 transition-opacity hover:opacity-80"
+        >
           <img
-            src={brandAssets.logo.src}
+            src={publicAsset(brandAssets.logo.src)}
             alt={brandAssets.logo.alt}
-            className="saq-logo h-14 w-auto"
+            className="saq-logo h-10 w-10"
           />
-          <div className="hidden flex-col sm:flex">
-            <span className="font-serif text-xl font-bold tracking-tight text-foreground">
+          <div className="flex flex-col items-start">
+            <span className="font-serif text-lg font-bold leading-tight">
               {brandAssets.companyName.primary}
             </span>
-            <span className="text-xs font-light tracking-wider text-muted-foreground">
+            <span className="text-xs font-medium tracking-wider text-muted-foreground">
               {brandAssets.companyName.secondary}
             </span>
           </div>
-        </Link>
+        </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Button
-              key={link.path}
-              variant="ghost"
-              asChild
-              className="text-sm font-medium transition-colors hover:text-accent-foreground"
+        <nav className="hidden items-center gap-6 md:flex">
+          {navItems.map((item) => (
+            <button
+              key={item.path}
+              onClick={() => handleNavigation(item.path)}
+              className={`text-sm font-medium transition-colors hover:text-foreground ${
+                isActive(item.path)
+                  ? 'text-foreground'
+                  : 'text-muted-foreground'
+              }`}
             >
-              <Link to={link.path}>{link.label}</Link>
-            </Button>
+              {item.label}
+            </button>
           ))}
         </nav>
 
         {/* Social Links - Desktop */}
-        <div className="hidden items-center gap-2 lg:flex">
-          <Button variant="ghost" size="icon" asChild>
-            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <SiInstagram className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href={socialLinks.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-              <SiTiktok className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href={socialLinks.snapchat} target="_blank" rel="noopener noreferrer" aria-label="Snapchat">
-              <SiSnapchat className="h-5 w-5" />
-            </a>
-          </Button>
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href={socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Instagram"
+          >
+            <SiInstagram className="h-5 w-5" />
+          </a>
+          <a
+            href={socialLinks.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="TikTok"
+          >
+            <SiTiktok className="h-5 w-5" />
+          </a>
+          <a
+            href={socialLinks.snapchat}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Snapchat"
+          >
+            <SiSnapchat className="h-5 w-5" />
+          </a>
         </div>
 
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="lg:hidden">
+          <SheetTrigger asChild className="md:hidden">
             <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle menu</span>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <nav className="flex flex-col gap-4 pt-8">
-              {navLinks.map((link) => (
-                <SheetClose asChild key={link.path}>
-                  <Button
-                    variant="ghost"
-                    className="justify-start text-lg"
-                    onClick={() => {
-                      navigate({ to: link.path });
-                      setIsOpen(false);
-                    }}
-                  >
-                    {link.label}
-                  </Button>
-                </SheetClose>
+              {navItems.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavigation(item.path)}
+                  className={`text-left text-lg font-medium transition-colors hover:text-foreground ${
+                    isActive(item.path)
+                      ? 'text-foreground'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {item.label}
+                </button>
               ))}
-              <div className="mt-6 flex gap-3 border-t border-border pt-6">
-                <Button variant="outline" size="icon" asChild>
-                  <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <SiInstagram className="h-5 w-5" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild>
-                  <a href={socialLinks.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                    <SiTiktok className="h-5 w-5" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild>
-                  <a href={socialLinks.snapchat} target="_blank" rel="noopener noreferrer" aria-label="Snapchat">
-                    <SiSnapchat className="h-5 w-5" />
-                  </a>
-                </Button>
+              <div className="mt-6 flex gap-4 border-t border-border pt-6">
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  aria-label="Instagram"
+                >
+                  <SiInstagram className="h-6 w-6" />
+                </a>
+                <a
+                  href={socialLinks.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  aria-label="TikTok"
+                >
+                  <SiTiktok className="h-6 w-6" />
+                </a>
+                <a
+                  href={socialLinks.snapchat}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  aria-label="Snapchat"
+                >
+                  <SiSnapchat className="h-6 w-6" />
+                </a>
               </div>
             </nav>
           </SheetContent>

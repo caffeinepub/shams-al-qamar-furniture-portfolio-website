@@ -1,5 +1,6 @@
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { GalleryItem } from '@/content/galleryMedia';
+import { publicAsset } from '@/lib/publicAsset';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -25,13 +26,13 @@ export default function MediaLightbox({ item, onClose }: MediaLightboxProps) {
           
           {item.type === 'image' ? (
             <img
-              src={item.path}
+              src={publicAsset(item.path)}
               alt={item.title}
               className="h-auto w-full max-h-[80vh] object-contain"
             />
           ) : (
             <video
-              src={item.path}
+              src={publicAsset(item.path)}
               controls
               autoPlay
               className="h-auto w-full max-h-[80vh]"

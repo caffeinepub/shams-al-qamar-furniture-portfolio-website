@@ -1,20 +1,94 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T19:30:29.300Z",
+  "generatedAt": "2026-02-09T20:19:10.992Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 0,
-    "implemented": 0,
-    "items": []
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-30",
+        "summary": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/lib/publicAsset.ts",
+          "frontend/src/content/galleryMedia.ts",
+          "frontend/src/content/branding.ts",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/GalleryPage.tsx",
+          "frontend/src/components/media/MediaStrip.tsx",
+          "frontend/src/components/media/MediaLightbox.tsx",
+          "frontend/public/404.html",
+          "frontend/public/_redirects",
+          "frontend/public/assets/generated/saq-logo-clean.dim_512x512.png",
+          "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
+          "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg",
+          "frontend/public/assets/majlis/IMG-20260205-WA0046-2.jpg",
+          "frontend/public/assets/majlis/IMG-20260205-WA0047-2.jpg",
+          "frontend/public/assets/majlis/IMG-20260205-WA0048-2.jpg"
+        ],
+        "matchedFiles": [
+          "frontend/src/lib/publicAsset.ts",
+          "frontend/src/content/galleryMedia.ts",
+          "frontend/src/content/branding.ts",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/GalleryPage.tsx",
+          "frontend/src/components/media/MediaStrip.tsx",
+          "frontend/src/components/media/MediaLightbox.tsx",
+          "frontend/public/404.html",
+          "frontend/public/_redirects"
+        ]
+      },
+      {
+        "id": "REQ-31",
+        "summary": "After a successful deployment, provide the live website URL and the direct Portfolio link (the live URL plus `/gallery`) as the shareable portfolio link.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/branding/PortfolioDirectLink.tsx",
+          "frontend/src/pages/GalleryPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/branding/PortfolioDirectLink.tsx",
+          "frontend/src/pages/GalleryPage.tsx"
+        ]
+      }
+    ]
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/public/404.html",
+    "frontend/public/_redirects",
+    "frontend/src/components/branding/PortfolioDirectLink.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/Header.tsx",
+    "frontend/src/components/media/MediaLightbox.tsx",
+    "frontend/src/components/media/MediaStrip.tsx",
+    "frontend/src/content/branding.ts",
+    "frontend/src/content/galleryMedia.ts",
+    "frontend/src/lib/publicAsset.ts",
+    "frontend/src/pages/GalleryPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,0 +1,3 @@
+# Netlify/Vercel-style redirects for SPA routing
+# All requests should serve index.html to enable client-side routing
+/*    /index.html   200

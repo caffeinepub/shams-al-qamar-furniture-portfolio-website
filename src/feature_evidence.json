@@ -1,4 +1,50 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-diagnose-and-fix-the-current-build-deployment-failure-including-any-caffeine-ic-deployment-configuration-issues-and-any-project-level-build-errors-so-the-project-builds-and-deploys-successfully-without-runtime-errors-typescript-errors-routing-errors-or-missing-asset-path-errors",
+      "featureTitle": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
+      "files": [
+        "frontend/public/404.html",
+        "frontend/public/_redirects",
+        "frontend/src/components/media/MediaLightbox.tsx",
+        "frontend/src/components/media/MediaStrip.tsx",
+        "frontend/src/content/branding.ts",
+        "frontend/src/content/galleryMedia.ts",
+        "frontend/src/lib/publicAsset.ts",
+        "frontend/src/pages/GalleryPage.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-30"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-after-a-successful-deployment-provide-the-live-website-url-and-the-direct-portfolio-link-the-live-url-plus-gallery-as-the-shareable-portfolio-link",
+      "featureTitle": "After a successful deployment, provide the live website URL and the direct Portfolio link (the live URL plus `/gallery`) as the shareable portfolio link.",
+      "files": [
+        "frontend/src/components/branding/PortfolioDirectLink.tsx",
+        "frontend/src/pages/GalleryPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-31"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

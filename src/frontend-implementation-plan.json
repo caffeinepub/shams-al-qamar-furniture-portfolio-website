@@ -1,6 +1,184 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Confirm direct portfolio link generation (no new code changes)",
-  "requirements": []
+  "title": "Fix frontend build/deploy issues and ensure portfolio links/assets work in production",
+  "requirements": [
+    {
+      "id": "REQ-30",
+      "summary": "Fix frontend build/deploy failures by hardening SPA routing fallbacks and making all referenced media/branding asset paths resolve correctly after deployment.",
+      "acceptanceCriteria": [
+        "A production build completes successfully with no TypeScript errors.",
+        "The deployed site loads without runtime errors in the browser console.",
+        "All routes defined in `frontend/src/App.tsx` (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) render successfully after deployment.",
+        "All media referenced from `frontend/src/content/galleryMedia.ts` resolves to valid URLs (no broken images for Majlis or other categories)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/publicAsset.ts",
+          "operation": "create",
+          "description": "Create a small utility to resolve public asset URLs using the app’s runtime base path (e.g., leveraging `import.meta.env.BASE_URL`) so production deployments with non-root bases do not produce missing-asset errors. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/content/galleryMedia.ts",
+          "operation": "modify",
+          "description": "Update gallery media definitions to avoid hardcoded absolute asset paths that can break on certain deployments; store paths in a base-safe form and/or export a resolver (via `frontend/src/lib/publicAsset.ts`) so every item (including Majlis) resolves to a valid URL in production. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/content/branding.ts",
+          "operation": "modify",
+          "description": "Make the logo source base-path safe (avoid hardcoded absolute paths that can break after deployment) by using the shared public-asset resolver. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Update the hero background image reference to use the shared base-path-safe public asset resolution (instead of a hardcoded absolute URL) to prevent missing asset-path errors after deployment. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Ensure gallery thumbnails use the base-path-safe resolved URL for each media item to prevent broken images/videos after deployment while keeping existing routing and UI intact. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/media/MediaStrip.tsx",
+          "operation": "modify",
+          "description": "Update MediaStrip to render images/videos using the base-path-safe resolved URL and keep the existing error/loading behavior so production deployments do not show broken media. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/media/MediaLightbox.tsx",
+          "operation": "modify",
+          "description": "Update lightbox media rendering to use the base-path-safe resolved URL for images/videos so opening any item works after deployment with no console errors. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/404.html",
+          "operation": "create",
+          "description": "Add an SPA fallback 404 page suitable for static hosting so deep-linked routes (e.g., `/gallery`) still load the app shell after deployment (avoids routing errors on refresh). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/_redirects",
+          "operation": "create",
+          "description": "Add a static-hosting redirect rule file (where supported) to route all requests to the app entry so all TanStack Router routes work after deployment. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/generated/saq-logo-clean.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated logo asset at this exact path so `brandAssets.logo` resolves in production (no missing asset-path errors)."
+        },
+        {
+          "path": "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated hero background image at this exact path so the Home hero background resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
+        },
+        {
+          "path": "frontend/public/assets/majlis/IMG-20260205-WA0046-2.jpg",
+          "operation": "create",
+          "description": "Add this Majlis gallery image at this exact path so Majlis items render without broken images after deployment."
+        },
+        {
+          "path": "frontend/public/assets/majlis/IMG-20260205-WA0047-2.jpg",
+          "operation": "create",
+          "description": "Add this Majlis gallery image at this exact path so Majlis items render without broken images after deployment."
+        },
+        {
+          "path": "frontend/public/assets/majlis/IMG-20260205-WA0048-2.jpg",
+          "operation": "create",
+          "description": "Add this Majlis gallery image at this exact path so Majlis items render without broken images after deployment."
+        }
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "summary": "Ensure the deployed site can surface and copy the live site URL and the direct portfolio URL (`/gallery`) as shareable links.",
+      "acceptanceCriteria": [
+        "A live URL to the deployed site is available.",
+        "A direct Portfolio URL ending in `/gallery` is provided."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/branding/PortfolioDirectLink.tsx",
+          "operation": "modify",
+          "description": "Enhance the existing shareable-link UI to clearly present both (1) the live site URL and (2) the portfolio URL ending in `/gallery`, with reliable copy-to-clipboard behavior in production deployments. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Keep the portfolio link block prominently visible on the Portfolio (`/gallery`) page and ensure it uses the finalized live/portfolio URL logic for shareable links after deployment. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
 }

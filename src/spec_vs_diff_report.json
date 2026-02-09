@@ -1,20 +1,60 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T19:30:29.298Z",
-  "summary": "No explicit functional requirements were provided in the BuildRequest. The only change shown is an update to project_state.json, which adds/updates project metadata describing multiple features and REQ IDs unrelated to the stated goal of “Confirm direct portfolio link generation (no new code changes).”",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-02-09T20:19:10.989Z",
+  "summary": "Diff focuses on frontend asset-path and SPA routing fixes: introduces a `publicAsset()` helper to prepend Vite `BASE_URL`, updates multiple components/pages to use it for images/videos, and adds static hosting SPA fallbacks (`_redirects`, `404.html`). It also adds an in-app component to display/copy the current origin and `/gallery` link. However, the diff does not provide evidence of actual deployment success, IC/Caffeine deployment configuration changes, or an explicitly published live URL as required.",
+  "missing_requirements": [
     {
-      "description": "Added/updated project metadata enumerating multiple features and REQ IDs (e.g., REQ-1..REQ-5) that were not requested in this BuildRequest (which specifies no requirements).",
-      "reason": "BuildRequest explicitly lists Requirements: none; however the diff introduces/updates a large set of feature descriptions and associated requirement IDs in project_state.json.",
+      "id": "REQ-30",
+      "requirement": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
+      "reason": "The diff shows frontend-side mitigations (base-path-safe asset URLs and SPA fallbacks) but does not show any changes to Caffeine/IC deployment configuration or other project-level build/deploy settings; it also provides no evidence that a production build completes successfully or that the deployed site is verified error-free.",
       "evidence": [
-        "project_state.json"
+        "frontend/public/_redirects",
+        "frontend/public/404.html",
+        "frontend/src/lib/publicAsset.ts"
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "requirement": "After a successful deployment, provide the live website URL and the direct Portfolio link (live URL + `/gallery`) as the shareable portfolio link.",
+      "reason": "No live deployed URL is provided in the diff. The added/modified UI component derives URLs from `window.location.origin` at runtime, but that does not satisfy the requirement to provide the actual live deployment URL as an output after deployment.",
+      "evidence": [
+        "frontend/src/components/branding/PortfolioDirectLink.tsx"
       ]
     }
   ],
-  "confidence": 0.72,
+  "hallucinated_features": [
+    {
+      "description": "Add Netlify/Vercel-style SPA redirect configuration and a static `404.html` SPA fallback page.",
+      "reason": "REQ-30 mentions routing errors and deployment failure generally, but does not explicitly request adding platform-specific redirect files; these are implementation additions beyond the explicitly stated deliverables.",
+      "evidence": [
+        "frontend/public/_redirects",
+        "frontend/public/404.html"
+      ]
+    },
+    {
+      "description": "Add an in-app 'Live Site URL' and 'Direct Portfolio URL' card UI with copy-to-clipboard buttons.",
+      "reason": "REQ-31 asks to provide the live URL and portfolio link after deployment; it does not ask to add a UI feature inside the site to display/copy these links.",
+      "evidence": [
+        "frontend/src/components/branding/PortfolioDirectLink.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
   "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/public/404.html",
+    "frontend/public/_redirects",
+    "frontend/src/components/branding/PortfolioDirectLink.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/Header.tsx",
+    "frontend/src/components/media/MediaLightbox.tsx",
+    "frontend/src/components/media/MediaStrip.tsx",
+    "frontend/src/content/branding.ts",
+    "frontend/src/content/galleryMedia.ts",
+    "frontend/src/lib/publicAsset.ts",
+    "frontend/src/pages/GalleryPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
     "project_state.json"
   ]
 }
