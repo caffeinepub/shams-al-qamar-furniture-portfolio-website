@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Portfolio website project for Shams Al Qamar Furniture (furniture/interiors business) with multi-page, video-referenced theme, service sections, and contact/location details; content to be sourced from provided social media links.",
+  "architectural_notes": [
+    "Site should be organized into clear, separate sections/pages per service category (Curtains & Drapes, Wallpaper Solutions, Full Interior, Turnkey Service, etc.).",
+    "Include prominent Contact/Location information and links to social platforms; portfolio media to be curated from provided social profiles."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal premium wordmark logo in black/gold on transparent background (shams-al-qamar-logo.dim_512x512.png)\n- Elegant interior-themed hero background with warm neutral tones and subtle texture/pattern (shams-al-qamar-hero-bg.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-multi-page-portfolio-website-for-shams-al-qamar-furniture-with-website-like-navigation-not-a-single-slide-deck-using-the-provided-english-copy-as-the-primary-content",
+      "title": "Create a responsive, multi-page portfolio website for “Shams Al Qamar Furniture” with website-like navigation (not a single slide deck), using the provided English copy as the primary content.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-coherent-visual-theme-consistent-across-all-pages-colors-typography-spacing-component-style-with-an-interiors-furniture-aesthetic-avoid-default-template-look-do-not-use-a-blue-purple-theme",
+      "title": "Implement a coherent visual theme consistent across all pages (colors, typography, spacing, component style) with an interiors/furniture aesthetic; avoid default/template look. Do not use a blue/purple theme.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-core-pages-sections-reflecting-the-user-provided-outline-and-business-information-1-home-title-company-name-tagline-crafting-elegance-tailoring-spaces-founder-role-line-placeholder-contact-summary-qr-code-block-2-about-3-vision-mission-4-what-we-do-services-overview",
+      "title": "Add core pages/sections reflecting the user-provided outline and business information: (1) Home/Title (company name + tagline “Crafting Elegance, Tailoring Spaces” + founder/role line placeholder + contact summary + QR code block), (2) About, (3) Vision & Mission, (4) What We Do/Services overview.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-dedicated-service-pages-or-clearly-separated-service-sections-for-each-category-with-descriptive-copy-and-media-slots-curtains-drapes-including-motorized-curtains-wallpaper-solutions-full-interior-fit-outs-residential-commercial-turnkey-service-consultation-to-installation-plus-additional-offerings-list-carpet-pvc-carpet-installation-roller-vertical-blinds-parquet-flooring-sofa-upholstery-new-sofa-sets",
+      "title": "Create dedicated service pages or clearly separated service sections for each category, with descriptive copy and media slots: Curtains & Drapes (including motorized curtains), Wallpaper Solutions, Full Interior Fit-outs (residential & commercial), Turnkey Service (consultation to installation), plus additional offerings list (carpet/PVC carpet installation, roller/vertical blinds, parquet flooring, sofa upholstery/new sofa sets).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-gallery-work-area-that-can-display-photos-and-videos-organized-by-the-same-service-categories-curtains-drapes-wallpaper-full-interior-turnkey-etc-populate-the-gallery-using-manually-provided-downloaded-media-assets-sourced-from-the-provided-social-links-no-automated-scraping",
+      "title": "Add a “Gallery/Work” area that can display photos and videos, organized by the same service categories (Curtains & Drapes, Wallpaper, Full Interior, Turnkey, etc.). Populate the gallery using manually provided/downloaded media assets sourced from the provided social links (no automated scraping).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-page-section-that-prominently-displays-the-provided-email-phone-contacts-with-names-and-location-include-click-to-call-and-click-to-email-links-where-supported",
+      "title": "Add a Contact page/section that prominently displays the provided email, phone contacts (with names), and location; include click-to-call and click-to-email links where supported.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-social-media-links-instagram-tiktok-snapchat-in-the-header-and-or-footer-using-the-exact-urls-provided-by-the-user",
+      "title": "Add social media links (Instagram, TikTok, Snapchat) in the header and/or footer, using the exact URLs provided by the user.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-generated-brand-images-to-the-project-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-e-g-header-logo-area-hero-section",
+      "title": "Add required generated brand images to the project as static assets under frontend/public/assets/generated and use them in the UI (e.g., header/logo area, hero section).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a portfolio website for Shams Al Qamar Furniture with website-like pages and a theme matching the referenced video/style",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add dedicated service sections/pages (e.g., Curtains & Drapes, Wallpaper Solutions, Full Interior Fit-outs, Turnkey Service, plus listed offerings)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Include contact details and location (email, 3 phone contacts, Deira Dubai UAE) prominently on the site",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Integrate/feature social media links (Instagram, TikTok, Snapchat) and source photos/videos from those platforms for site content",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Shams Al Qamar Furniture Portfolio Website",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

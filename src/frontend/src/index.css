@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Warm neutral palette with gold accents */
+        --background: 0.98 0.005 40;
+        --foreground: 0.20 0.015 40;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.20 0.015 40;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.20 0.015 40;
+        
+        --primary: 0.25 0.020 40;
+        --primary-foreground: 0.98 0.005 40;
+        
+        --secondary: 0.92 0.010 40;
+        --secondary-foreground: 0.25 0.020 40;
+        
+        --muted: 0.95 0.008 40;
+        --muted-foreground: 0.50 0.012 40;
+        
+        --accent: 0.90 0.012 40;
+        --accent-foreground: 0.25 0.020 40;
+        
+        --destructive: 0.55 0.20 25;
+        --destructive-foreground: 0.98 0.005 40;
+        
+        --border: 0.88 0.008 40;
+        --input: 0.88 0.008 40;
+        --ring: 0.50 0.012 40;
+        
+        /* Gold accent color */
+        --gold: 0.65 0.15 65;
+        
+        --chart-1: 0.65 0.15 65;
+        --chart-2: 0.55 0.12 45;
+        --chart-3: 0.45 0.10 35;
+        --chart-4: 0.70 0.18 75;
+        --chart-5: 0.60 0.14 55;
+    }
+
+    .dark {
+        --background: 0.15 0.015 40;
+        --foreground: 0.95 0.008 40;
+        
+        --card: 0.20 0.018 40;
+        --card-foreground: 0.95 0.008 40;
+        
+        --popover: 0.18 0.016 40;
+        --popover-foreground: 0.95 0.008 40;
+        
+        --primary: 0.85 0.012 50;
+        --primary-foreground: 0.20 0.018 40;
+        
+        --secondary: 0.25 0.020 40;
+        --secondary-foreground: 0.95 0.008 40;
+        
+        --muted: 0.25 0.020 40;
+        --muted-foreground: 0.65 0.010 40;
+        
+        --accent: 0.30 0.025 40;
+        --accent-foreground: 0.95 0.008 40;
+        
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 0.95 0.008 40;
+        
+        --border: 0.30 0.020 40;
+        --input: 0.30 0.020 40;
+        --ring: 0.65 0.010 40;
+        
+        /* Gold accent for dark mode */
+        --gold: 0.70 0.18 65;
+        
+        --chart-1: 0.70 0.18 65;
+        --chart-2: 0.60 0.14 45;
+        --chart-3: 0.50 0.12 35;
+        --chart-4: 0.75 0.20 75;
+        --chart-5: 0.65 0.16 55;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-serif;
+    }
+}
+
+@layer utilities {
+    .text-gold {
+        color: oklch(var(--gold));
+    }
+    
+    .bg-gold {
+        background-color: oklch(var(--gold));
+    }
+    
+    .border-gold {
+        border-color: oklch(var(--gold));
+    }
+}

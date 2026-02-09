@@ -1,0 +1,310 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Shams Al Qamar Furniture — multi-page portfolio website (responsive, services, gallery, contact)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive multi-page marketing site with clear top navigation and English-only content for “Shams Al Qamar Furniture”.",
+      "acceptanceCriteria": [
+        "Site loads as a responsive marketing website with a clear top navigation and distinct pages/sections.",
+        "Company name is displayed as “Shams Al Qamar Furniture”.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the root app shell with website-like navigation and page routing (Home, About, Vision & Mission, Services, Gallery/Work, Contact) and ensure the company name “Shams Al Qamar Furniture” is used in UI text."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout wrapper that provides consistent header/footer placement and responsive page container spacing across all pages."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "create",
+          "description": "Create a responsive header with top navigation links to all required pages/sections. Use shadcn-ui components (e.g., NavigationMenu/Button/Sheet as appropriate) to implement a professional responsive nav; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "create",
+          "description": "Create a footer containing navigation shortcuts and key business info (contact summary + social links) to reinforce discoverability."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page with marketing hero/title content (using English copy) and clear CTAs to Services, Gallery, and Contact."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create an About page that presents the provided English company description with readable formatting."
+        },
+        {
+          "path": "frontend/src/pages/VisionMissionPage.tsx",
+          "operation": "create",
+          "description": "Create a Vision & Mission page that displays the provided statements prominently and consistently styled."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "create",
+          "description": "Create a Services overview page that links/jumps to distinct service sections and provides scannable summaries."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "create",
+          "description": "Create a Gallery/Work page with category filtering and support for both images and videos from local/static assets."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create a Contact page with email/phone/location and click-to-contact links."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create the global stylesheet entry used by frontend/src/main.tsx, including base typography and layout defaults appropriate for a marketing site."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a cohesive interiors/furniture visual theme (warm neutrals + black/gold accents), consistent typography/spacing, and avoid a blue/purple look.",
+      "acceptanceCriteria": [
+        "A single, consistent design system is applied across the site (typography scale, buttons/links, section headers, spacing).",
+        "Theme is not primarily blue/purple.",
+        "Layout and styling look intentional and brand-appropriate for an interiors/furniture business."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define warm-neutral theme CSS variables (background/foreground, card, muted, accent, borders) and global typography rules to avoid default/template look and avoid blue/purple dominance."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens (fonts, shadows, and optional custom colors for warm neutrals + gold accents) to enforce consistent spacing/typography across pages."
+        },
+        {
+          "path": "frontend/src/components/branding/SectionHeader.tsx",
+          "operation": "create",
+          "description": "Create a reusable section header component (title + optional subtitle) for consistent hierarchy across pages; use shadcn-ui typography-friendly primitives (e.g., Card) only as composed building blocks; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/branding/PrimaryButton.tsx",
+          "operation": "create",
+          "description": "Create a reusable primary CTA button wrapper with consistent styling; compose shadcn-ui Button to keep consistent interactions; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Apply consistent page padding, max-width containers, and section spacing so all pages share the same layout rhythm."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement core pages/sections (Home/Title, About, Vision & Mission, Services overview) using the provided business info including exact tagline and a visible QR code block.",
+      "acceptanceCriteria": [
+        "Home/Title area includes the company name and the exact tagline text.",
+        "Vision and Mission statements appear exactly as provided.",
+        "About section includes the provided paragraph content (can be edited for formatting only, not meaning).",
+        "A QR code block is visible on the Home/Title page (QR destination can be a site URL/contact link)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/siteCopy.ts",
+          "operation": "create",
+          "description": "Add a single source of truth for the provided English copy: company name, exact tagline “Crafting Elegance, Tailoring Spaces”, About paragraph, and Vision/Mission statements to ensure consistent reuse across pages."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Implement the Home/Title area to display company name, exact tagline text, a founder/role placeholder line, a contact summary snippet, and a dedicated QR code block."
+        },
+        {
+          "path": "frontend/src/components/branding/QRCodeBlock.tsx",
+          "operation": "create",
+          "description": "Create a QR code block component that renders a scannable QR as SVG for a fixed destination (e.g., the Contact page URL), without adding new dependencies. Ensure it is visibly framed/styled to fit the interiors theme."
+        },
+        {
+          "path": "frontend/src/content/qrMatrix.ts",
+          "operation": "create",
+          "description": "Store a precomputed QR matrix (for the chosen destination) as a plain data export to support QRCodeBlock rendering without external libraries."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Render the About content from frontend/src/content/siteCopy.ts with formatting-only adjustments (headings/paragraph spacing) while preserving meaning."
+        },
+        {
+          "path": "frontend/src/pages/VisionMissionPage.tsx",
+          "operation": "modify",
+          "description": "Render Vision & Mission statements from frontend/src/content/siteCopy.ts exactly as provided, using consistent section styling."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the Services overview section exists and uses the provided outline (“What We Do/Services overview”) with clear navigation to each service category section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add clearly separated service sections (or dedicated pages) for each service category with descriptive copy, additional offerings list, and media slots.",
+      "acceptanceCriteria": [
+        "Each service category is presented as its own page or clearly distinct section with heading and summary.",
+        "Services listed by the user are all present somewhere on the Services overview and/or service detail sections.",
+        "Each service category includes a gallery/media area ready to display images/videos."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/services.ts",
+          "operation": "create",
+          "description": "Define structured service content (Curtains & Drapes incl. motorized, Wallpaper Solutions, Full Interior Fit-outs, Turnkey Service) plus the additional offerings list (carpet/PVC carpet, roller/vertical blinds, parquet flooring, sofa upholstery/new sofa sets)."
+        },
+        {
+          "path": "frontend/src/components/services/ServiceSection.tsx",
+          "operation": "create",
+          "description": "Create a reusable service section component with: heading, descriptive copy, key bullets, and a media slot area. Compose shadcn-ui components (e.g., Card/Tabs/AspectRatio as appropriate) for consistent UI; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/media/MediaStrip.tsx",
+          "operation": "create",
+          "description": "Create a media strip/grid component that can render image and video thumbnails (from local/static assets) and reserve space for future additions; compose shadcn-ui components (e.g., Dialog for lightbox) if used; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Implement distinct sections for each service category using frontend/src/content/services.ts and include a media area per category. Include the additional offerings list in an appropriate section (e.g., “Additional Offerings”)."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Ensure navigation includes a clear route to Services and optionally in-page anchors/jump menu for the individual service categories."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement a Gallery/Work area that supports images and videos, grouped/filtered by service category, using only manually added local/static media (no scraping).",
+      "acceptanceCriteria": [
+        "Gallery supports both images and videos (common web formats) and is viewable on mobile and desktop.",
+        "Gallery content is grouped/filtered by service category.",
+        "Implementation does not attempt to programmatically scrape Instagram/TikTok/Snapchat; it only displays local/static assets added to the project."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/galleryMedia.ts",
+          "operation": "create",
+          "description": "Create a curated manifest listing gallery items (type image/video, category, title, and local public asset path). Keep it compatible with manually added media files only."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Implement a responsive gallery view that can filter/group by service category and render both images and videos sourced from frontend/src/content/galleryMedia.ts. Use shadcn-ui Tabs/ToggleGroup/Select for filtering UI if appropriate; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/media/MediaLightbox.tsx",
+          "operation": "create",
+          "description": "Add an optional lightbox/dialog viewer for images and videos to improve UX on both mobile and desktop; compose shadcn-ui Dialog; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/gallery/README.txt",
+          "operation": "create",
+          "description": "Add a short note documenting that gallery media must be manually downloaded and placed under frontend/public/assets/gallery (no automated scraping/downloading)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add a Contact page/section with the provided email, named phone contacts, and location; include click-to-email and click-to-call links; ensure discoverability via nav/footer.",
+      "acceptanceCriteria": [
+        "Contact section includes: shamsalqamar90@gmail.com; LUQMAN DABIR: 971 55 376 7628; AIJAZ AHMAD: 971 554897617; ABDUL BASIT: 971 52 156 4550; and “DEIRA, DUBAI - UAE”.",
+        "Email is a mailto: link and phone numbers are tel: links.",
+        "Contact info is also discoverable from the main navigation and/or footer."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Render the exact contact details provided (email + named phone numbers + location) and implement mailto: and tel: links. Use shadcn-ui Card components for readable grouping if desired; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Add a prominent navigation link to the Contact page so contact info is discoverable from the main navigation."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "modify",
+          "description": "Include a condensed contact summary (email + at least one phone + location) in the footer with mailto:/tel: links for discoverability."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add Instagram, TikTok, and Snapchat links in the header and/or footer using the exact provided URLs and open in a new tab.",
+      "acceptanceCriteria": [
+        "Header/footer shows icons or labeled links for Instagram, TikTok, and Snapchat.",
+        "Links open the exact provided URLs in a new tab."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/socialLinks.ts",
+          "operation": "create",
+          "description": "Centralize the exact social URLs (Instagram/TikTok/Snapchat) in one export to avoid typos and ensure consistency."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Add labeled links and/or icons for Instagram, TikTok, and Snapchat using frontend/src/content/socialLinks.ts, opening in a new tab. Compose shadcn-ui Button/Link styling as needed; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "modify",
+          "description": "Repeat social links in the footer (icons or labeled links) using frontend/src/content/socialLinks.ts, opening in a new tab."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add the required generated brand images under frontend/public/assets/generated and use them in the UI (logo in header, hero background on Home) without backend routing.",
+      "acceptanceCriteria": [
+        "Generated images exist at frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
+        "UI renders the logo in the header and the hero background/hero image on the Home page without routing images through the backend.",
+        "Site remains readable and visually consistent when these images are present."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/shams-al-qamar-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the required generated logo asset at the exact path: frontend/public/assets/generated/shams-al-qamar-logo.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the required generated hero background asset at the exact path: frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Render the generated logo image from frontend/public/assets/generated/shams-al-qamar-logo.dim_512x512.png in the header brand area, ensuring accessible alt text and responsive sizing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Use frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png as the Home hero background (or hero media) and ensure text contrast/readability remains strong across breakpoints."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust global styles as needed to maintain readability/contrast when the hero background image is present (e.g., overlay treatment, text colors), while staying within the warm neutral + gold/black theme (no blue/purple theme)."
+        }
+      ]
+    }
+  ]
+}
