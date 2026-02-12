@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the Services page galleries by clearing the “Full Interior Fit-outs” gallery and adding a new image gallery for the “Carpet Installation” additional offering.
+**Goal:** Add a Parquet Flooring gallery image and wire the Parquet Flooring service to render media in the Services page “Additional Offerings” section.
 
 **Planned changes:**
-- Remove all existing gallery media entries for the “Full Interior Fit-outs” service so it shows the empty-gallery placeholder.
-- Add 6 provided carpet-related images as static assets under `frontend/public/assets/` (keeping filenames exactly) and register them in `frontend/src/content/galleryMedia.ts` under a single carpet gallery category.
-- Update the “Additional Offerings” UI so only “Carpet Installation” renders a `MediaStrip` using the new carpet category (other offerings unchanged).
+- Add a new generated static image asset at `frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg`.
+- Add at least one new `GalleryItem` in `frontend/src/content/galleryMedia.ts` with category `parquet-flooring` referencing `assets/generated/parquet-flooring-001.dim_1600x1200.jpg`.
+- Update `frontend/src/content/services.ts` so the Parquet Flooring additionalOfferings entry uses `mediaCategory: "parquet-flooring"` to render via the existing `MediaStrip`.
 
-**User-visible outcome:** On the Services page, “Full Interior Fit-outs” shows “Gallery images coming soon...” with no thumbnails, and “Carpet Installation” displays a thumbnail grid of the newly added carpet images.
+**User-visible outcome:** The Parquet Flooring card under “Additional Offerings” on the Services page displays a MediaStrip with the parquet flooring image.

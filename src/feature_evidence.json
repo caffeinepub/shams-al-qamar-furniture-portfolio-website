@@ -2,11 +2,9 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-existing-gallery-images-from-the-full-interior-fit-outs-service-section-so-that-the-service-shows-the-empty-gallery-placeholder-gallery-images-coming-soon-instead-of-thumbnails",
-      "featureTitle": "Remove the existing gallery images from the 'Full Interior Fit-outs' service section so that the service shows the empty-gallery placeholder ('Gallery images coming soon...') instead of thumbnails.",
-      "files": [
-        "frontend/src/content/galleryMedia.ts"
-      ],
+      "featureId": "feature-create-a-new-generated-static-image-asset-for-the-parquet-flooring-service-and-place-it-under-frontend-public-assets-generated-with-the-exact-filename-specified-in-the-image-requirements",
+      "featureTitle": "Create a new generated static image asset for the Parquet Flooring service and place it under frontend/public/assets/generated with the exact filename specified in the image requirements.",
+      "files": [],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -20,8 +18,8 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-the-6-uploaded-images-as-static-frontend-assets-and-register-them-as-gallery-media-items-for-a-new-carpet-category-used-by-the-additional-offering-carpet-installation-uploaded-files-to-add-carpet4-jpeg-carpet2-jpeg-carpet1-jpeg-carpet3-jpeg-carpet1-1-jpeg-screenshot-2026-02-12-215137-png",
-      "featureTitle": "Add the 6 uploaded images as static frontend assets and register them as gallery media items for a new 'carpet' category used by the additional offering 'Carpet Installation'. Uploaded files to add: `carpet4.jpeg`, `carpet2.jpeg`, `carpet1.jpeg`, `carpet3.jpeg`, `carpet1.1.jpeg`, `Screenshot 2026-02-12 215137.png`.",
+      "featureId": "feature-add-a-new-gallery-media-item-for-the-parquet-flooring-category-so-it-can-be-rendered-by-the-existing-mediastrip-component",
+      "featureTitle": "Add a new gallery media item for the Parquet Flooring category so it can be rendered by the existing MediaStrip component.",
       "files": [
         "frontend/src/content/galleryMedia.ts"
       ],
@@ -38,11 +36,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-additional-offerings-ui-so-that-the-carpet-installation-offering-displays-a-thumbnail-grid-of-the-new-carpet-images-reusing-the-existing-mediastrip-component",
-      "featureTitle": "Update the 'Additional Offerings' UI so that the 'Carpet Installation' offering displays a thumbnail grid of the new carpet images (reusing the existing `MediaStrip` component).",
+      "featureId": "feature-enable-media-rendering-for-the-parquet-flooring-entry-in-the-services-page-additional-offerings-section-by-wiring-it-to-the-parquet-flooring-media-category",
+      "featureTitle": "Enable media rendering for the Parquet Flooring entry in the Services page \"Additional Offerings\" section by wiring it to the Parquet Flooring media category.",
       "files": [
-        "frontend/src/content/services.ts",
-        "frontend/src/pages/ServicesPage.tsx"
+        "frontend/src/content/services.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",

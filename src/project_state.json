@@ -1,30 +1,31 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Service-based app/site with section-specific image galleries (e.g., Full Interior Fit-outs, Carpet Service) being updated via deployments.",
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Parquet flooring in a bright modern interior photo (parquet-flooring-001.dim_1600x1200.jpg)",
   "existing_features": [
     {
-      "id": "feature-remove-the-existing-gallery-images-from-the-full-interior-fit-outs-service-section-so-that-the-service-shows-the-empty-gallery-placeholder-gallery-images-coming-soon-instead-of-thumbnails",
-      "title": "Remove the existing gallery images from the 'Full Interior Fit-outs' service section so that the service shows the empty-gallery placeholder ('Gallery images coming soon...') instead of thumbnails.",
+      "id": "feature-create-a-new-generated-static-image-asset-for-the-parquet-flooring-service-and-place-it-under-frontend-public-assets-generated-with-the-exact-filename-specified-in-the-image-requirements",
+      "title": "Create a new generated static image asset for the Parquet Flooring service and place it under frontend/public/assets/generated with the exact filename specified in the image requirements.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-the-6-uploaded-images-as-static-frontend-assets-and-register-them-as-gallery-media-items-for-a-new-carpet-category-used-by-the-additional-offering-carpet-installation-uploaded-files-to-add-carpet4-jpeg-carpet2-jpeg-carpet1-jpeg-carpet3-jpeg-carpet1-1-jpeg-screenshot-2026-02-12-215137-png",
-      "title": "Add the 6 uploaded images as static frontend assets and register them as gallery media items for a new 'carpet' category used by the additional offering 'Carpet Installation'. Uploaded files to add: `carpet4.jpeg`, `carpet2.jpeg`, `carpet1.jpeg`, `carpet3.jpeg`, `carpet1.1.jpeg`, `Screenshot 2026-02-12 215137.png`.",
+      "id": "feature-add-a-new-gallery-media-item-for-the-parquet-flooring-category-so-it-can-be-rendered-by-the-existing-mediastrip-component",
+      "title": "Add a new gallery media item for the Parquet Flooring category so it can be rendered by the existing MediaStrip component.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-additional-offerings-ui-so-that-the-carpet-installation-offering-displays-a-thumbnail-grid-of-the-new-carpet-images-reusing-the-existing-mediastrip-component",
-      "title": "Update the 'Additional Offerings' UI so that the 'Carpet Installation' offering displays a thumbnail grid of the new carpet images (reusing the existing `MediaStrip` component).",
+      "id": "feature-enable-media-rendering-for-the-parquet-flooring-entry-in-the-services-page-additional-offerings-section-by-wiring-it-to-the-parquet-flooring-media-category",
+      "title": "Enable media rendering for the Parquet Flooring entry in the Services page \"Additional Offerings\" section by wiring it to the Parquet Flooring media category.",
       "reqIds": [
         "REQ-3"
       ],
@@ -34,19 +35,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Remove previous images from the 'Full interior fit-outs' service section (images will be added later).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add the attached images to the additional service section: 'Carpet service'.",
+      "summary": "Apply the same recently added functionality/changes to the parquet flooring service (as was done for the vertical blinds service).",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Update service galleries: remove Full Interior Fit-outs images and add Carpet Installation images",
+  "projectName": "Apply Vertical Blinds gallery/media setup to Parquet Flooring service",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

@@ -88,13 +88,16 @@ export const additionalOfferings: AdditionalOffering[] = [
   {
     title: 'Roller Blinds',
     description: 'Modern and functional window treatments',
+    mediaCategory: 'roller-blinds',
   },
   {
     title: 'Vertical Blinds',
     description: 'Elegant light control solutions',
+    mediaCategory: 'vertical-blinds',
   },
   {
     title: 'Parquet Flooring',
     description: 'Classic and durable flooring options',
+    mediaCategory: 'parquet-flooring',
   },
 ];

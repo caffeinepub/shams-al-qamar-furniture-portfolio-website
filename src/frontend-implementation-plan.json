@@ -1,87 +1,51 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update service galleries: remove Full Interior Fit-outs images and add Carpet Installation images",
+  "title": "Wire Parquet Flooring media into existing Services gallery system",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove all 'Full Interior Fit-outs' gallery items so the Services page shows the MediaStrip empty-gallery placeholder for that service.",
+      "summary": "Add the generated Parquet Flooring static image asset to the public generated assets directory.",
       "acceptanceCriteria": [
-        "`frontend/src/content/galleryMedia.ts` no longer contains any `GalleryItem` entries with `category: 'full-interior'`.",
-        "On the Services page, the 'Full Interior Fit-outs' service section renders the empty-gallery placeholder block from `MediaStrip` (no thumbnails)."
+        "A new image file exists at frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg.",
+        "The app can load the image via the existing public asset loading approach (served from the frontend public directory)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/content/galleryMedia.ts",
-          "operation": "modify",
-          "description": "Delete the existing `GalleryItem` entries for the 'Full Interior Fit-outs' section by removing all items with `category: 'full-interior'`, ensuring `MediaStrip` receives an empty list and renders its placeholder."
+          "path": "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg",
+          "operation": "create",
+          "description": "Add the generated image asset for Parquet Flooring exactly at frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg so it is served as a static public asset."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add 6 uploaded carpet images as static assets and register them as gallery media items under a new carpet gallery category.",
+      "summary": "Add a Parquet Flooring gallery item so MediaStrip can render it by category.",
       "acceptanceCriteria": [
-        "All 6 uploaded image files are present under `frontend/public/assets/` (preserve filenames exactly, including spaces and punctuation).",
-        "`frontend/src/content/galleryMedia.ts` includes 6 new `GalleryItem` entries (type `image`) that reference the new assets via `path: 'assets/<filename>'` and share a single, consistent category string for carpet (e.g., `carpet-installation`).",
-        "No existing gallery categories are broken (other service galleries still load their images)."
+        "frontend/src/content/galleryMedia.ts includes at least one new GalleryItem with category set to \"parquet-flooring\".",
+        "The new GalleryItem references the generated parquet flooring image path \"assets/generated/parquet-flooring-001.dim_1600x1200.jpg\".",
+        "The GalleryItem id is unique within galleryMedia."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/carpet4.jpeg",
-          "operation": "create",
-          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet4.jpeg`."
-        },
-        {
-          "path": "frontend/public/assets/carpet2.jpeg",
-          "operation": "create",
-          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet2.jpeg`."
-        },
-        {
-          "path": "frontend/public/assets/carpet1.jpeg",
-          "operation": "create",
-          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet1.jpeg`."
-        },
-        {
-          "path": "frontend/public/assets/carpet3.jpeg",
-          "operation": "create",
-          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet3.jpeg`."
-        },
-        {
-          "path": "frontend/public/assets/carpet1.1.jpeg",
-          "operation": "create",
-          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet1.1.jpeg`."
-        },
-        {
-          "path": "frontend/public/assets/Screenshot 2026-02-12 215137.png",
-          "operation": "create",
-          "description": "Add the uploaded static image asset (preserve filename exactly, including spaces): `Screenshot 2026-02-12 215137.png`."
-        },
-        {
           "path": "frontend/src/content/galleryMedia.ts",
           "operation": "modify",
-          "description": "Append 6 new `GalleryItem` entries of type `image` for a single new carpet category (use one consistent category string, e.g. `carpet-installation`). Each item should reference the new static assets using `path: 'assets/<filename>'` with exact filenames (including spaces/punctuation where applicable)."
+          "description": "Append a new GalleryItem entry for the \"parquet-flooring\" category with a unique id (e.g., \"parquet-flooring-001\"), type \"image\", an appropriate title, and path set to \"assets/generated/parquet-flooring-001.dim_1600x1200.jpg\" so the existing MediaStrip component can resolve and render it via publicAsset()."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Render a MediaStrip of the carpet gallery inside the 'Carpet Installation' additional offering only.",
+      "summary": "Wire the Parquet Flooring Additional Offerings card to the Parquet Flooring media category so it renders a MediaStrip on the Services page.",
       "acceptanceCriteria": [
-        "The 'Additional Offerings' card for 'Carpet Installation' shows a `MediaStrip` directly within/under the offering content, rendering up to 4 thumbnails (consistent with current `MediaStrip` default behavior).",
-        "Other additional offerings (Roller Blinds, Vertical Blinds, Parquet Flooring) remain unchanged and do not show a media strip.",
-        "No console errors occur due to missing categories/paths when visiting the Services page."
+        "frontend/src/content/services.ts sets the Parquet Flooring additionalOfferings entry mediaCategory to \"parquet-flooring\".",
+        "On the Services page, the Parquet Flooring card in Additional Offerings renders a MediaStrip and displays the parquet flooring media item(s)."
       ],
       "file_operations": [
         {
           "path": "frontend/src/content/services.ts",
           "operation": "modify",
-          "description": "Extend the `additionalOfferings` content to include an optional field (e.g., `mediaCategory`) on the 'Carpet Installation' item only, set to the same carpet category string used in `frontend/src/content/galleryMedia.ts` (e.g. `carpet-installation`). Leave other offerings unchanged (no media category)."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Import and render the existing `MediaStrip` component within/under the 'Carpet Installation' additional offering only (conditionally based on the new optional offering field), passing the carpet gallery category so the offering displays up to 4 thumbnails by default. Ensure other offerings render exactly as before without a media strip."
+          "description": "Update the \"Parquet Flooring\" entry in additionalOfferings to include mediaCategory: \"parquet-flooring\" so the existing Services page logic conditionally renders MediaStrip for that card."
         }
       ]
     }

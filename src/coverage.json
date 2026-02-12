@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T16:31:10.924Z",
+  "generatedAt": "2026-02-12T18:38:53.054Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,48 +12,35 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Remove the existing gallery images from the 'Full Interior Fit-outs' service section so that the service shows the empty-gallery placeholder ('Gallery images coming soon...') instead of thumbnails.",
+        "summary": "Create a new generated static image asset for the Parquet Flooring service and place it under frontend/public/assets/generated with the exact filename specified in the image requirements.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/galleryMedia.ts"
+          "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg"
         ],
         "matchedFiles": [
-          "frontend/src/content/galleryMedia.ts"
+          "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Add the 6 uploaded images as static frontend assets and register them as gallery media items for a new 'carpet' category used by the additional offering 'Carpet Installation'. Uploaded files to add: `carpet4.jpeg`, `carpet2.jpeg`, `carpet1.jpeg`, `carpet3.jpeg`, `carpet1.1.jpeg`, `Screenshot 2026-02-12 215137.png`.",
+        "summary": "Add a new gallery media item for the Parquet Flooring category so it can be rendered by the existing MediaStrip component.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/carpet4.jpeg",
-          "frontend/public/assets/carpet2.jpeg",
-          "frontend/public/assets/carpet1.jpeg",
-          "frontend/public/assets/carpet3.jpeg",
-          "frontend/public/assets/carpet1.1.jpeg",
-          "frontend/public/assets/Screenshot 2026-02-12 215137.png",
           "frontend/src/content/galleryMedia.ts"
         ],
         "matchedFiles": [
-          "frontend/public/assets/carpet4.jpeg",
-          "frontend/public/assets/carpet2.jpeg",
-          "frontend/public/assets/carpet1.jpeg",
-          "frontend/public/assets/carpet3.jpeg",
-          "frontend/public/assets/carpet1.1.jpeg",
           "frontend/src/content/galleryMedia.ts"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Update the 'Additional Offerings' UI so that the 'Carpet Installation' offering displays a thumbnail grid of the new carpet images (reusing the existing `MediaStrip` component).",
+        "summary": "Enable media rendering for the Parquet Flooring entry in the Services page \"Additional Offerings\" section by wiring it to the Parquet Flooring media category.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/services.ts",
-          "frontend/src/pages/ServicesPage.tsx"
+          "frontend/src/content/services.ts"
         ],
         "matchedFiles": [
-          "frontend/src/content/services.ts",
-          "frontend/src/pages/ServicesPage.tsx"
+          "frontend/src/content/services.ts"
         ]
       }
     ]
@@ -63,15 +50,9 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/Screenshot",
-    "frontend/public/assets/carpet1.1.jpeg",
-    "frontend/public/assets/carpet1.jpeg",
-    "frontend/public/assets/carpet2.jpeg",
-    "frontend/public/assets/carpet3.jpeg",
-    "frontend/public/assets/carpet4.jpeg",
+    "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg",
     "frontend/src/content/galleryMedia.ts",
     "frontend/src/content/services.ts",
-    "frontend/src/pages/ServicesPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

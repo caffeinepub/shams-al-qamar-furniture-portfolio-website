@@ -310,4 +310,31 @@ export const galleryMedia: GalleryItem[] = [
     title: 'Carpet Installation Service Preview',
     path: 'assets/Screenshot 2026-02-12 215137.png',
   },
+
+  // Roller Blinds
+  {
+    id: 'roller-blinds-001',
+    type: 'image',
+    category: 'roller-blinds',
+    title: 'Modern Roller Blinds Installation',
+    path: 'assets/roller blind.jpeg',
+  },
+
+  // Vertical Blinds
+  {
+    id: 'vertical-blinds-001',
+    type: 'image',
+    category: 'vertical-blinds',
+    title: 'Blue Vertical Blinds with Ocean View',
+    path: 'assets/generated/vertical-blinds-001.dim_1600x1200.jpg',
+  },
+
+  // Parquet Flooring
+  {
+    id: 'parquet-flooring-001',
+    type: 'image',
+    category: 'parquet-flooring',
+    title: 'Classic Parquet Flooring Installation',
+    path: 'assets/generated/parquet-flooring-001.dim_1600x1200.jpg',
+  },
 ];
