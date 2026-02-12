@@ -68,8 +68,8 @@ export default function HomePage() {
                   </p>
                   <p>
                     <strong className="text-foreground">Phone:</strong>{' '}
-                    <a href={`tel:${contactInfo.phones[0].number}`} className="hover:underline">
-                      {contactInfo.phones[0].number}
+                    <a href="tel:0521564550" className="hover:underline">
+                      0521564550
                     </a>
                   </p>
                   <p>
@@ -94,12 +94,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { title: 'Custom Curtains & Drapes', desc: 'Silk, chiffon, linen & motorized options' },
+              { title: 'Custom Curtains & Drapes', desc: 'Silk, Sheer, linen & motorized options' },
               { title: 'Wallpaper Solutions', desc: 'Designer prints & textured finishes' },
               { title: 'Full Interior Fit-outs', desc: 'Residential & commercial projects' },
-              { title: 'Turnkey Service', desc: 'Design consultation to installation' },
             ].map((service, idx) => (
               <Card key={idx} className="transition-shadow hover:shadow-lg">
                 <CardContent className="p-6">

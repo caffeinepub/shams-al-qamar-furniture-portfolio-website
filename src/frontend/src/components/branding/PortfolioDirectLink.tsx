@@ -54,7 +54,7 @@ export default function PortfolioDirectLink() {
                 className="text-sm font-mono text-foreground hover:text-accent transition-colors break-all flex items-center gap-1"
               >
                 {siteUrl}
-                <ExternalLink className="h-3 w-3 flex-shrink-0" />
+                <ExternalLink className="h-3 w-3 shrink-0" />
               </a>
             </div>
             <Button
@@ -93,7 +93,7 @@ export default function PortfolioDirectLink() {
                 className="text-sm font-mono text-foreground hover:text-gold transition-colors break-all flex items-center gap-1"
               >
                 {portfolioUrl}
-                <ExternalLink className="h-3 w-3 flex-shrink-0" />
+                <ExternalLink className="h-3 w-3 shrink-0" />
               </a>
             </div>
             <Button

@@ -2,18 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-diagnose-and-fix-the-current-build-deployment-failure-including-any-caffeine-ic-deployment-configuration-issues-and-any-project-level-build-errors-so-the-project-builds-and-deploys-successfully-without-runtime-errors-typescript-errors-routing-errors-or-missing-asset-path-errors",
-      "featureTitle": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
+      "featureId": "feature-remove-the-existing-gallery-images-from-the-full-interior-fit-outs-service-section-so-that-the-service-shows-the-empty-gallery-placeholder-gallery-images-coming-soon-instead-of-thumbnails",
+      "featureTitle": "Remove the existing gallery images from the 'Full Interior Fit-outs' service section so that the service shows the empty-gallery placeholder ('Gallery images coming soon...') instead of thumbnails.",
       "files": [
-        "frontend/public/404.html",
-        "frontend/public/_redirects",
-        "frontend/src/components/media/MediaLightbox.tsx",
-        "frontend/src/components/media/MediaStrip.tsx",
-        "frontend/src/content/branding.ts",
-        "frontend/src/content/galleryMedia.ts",
-        "frontend/src/lib/publicAsset.ts",
-        "frontend/src/pages/GalleryPage.tsx",
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/src/content/galleryMedia.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -23,16 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-30"
+        "REQ-1"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-after-a-successful-deployment-provide-the-live-website-url-and-the-direct-portfolio-link-the-live-url-plus-gallery-as-the-shareable-portfolio-link",
-      "featureTitle": "After a successful deployment, provide the live website URL and the direct Portfolio link (the live URL plus `/gallery`) as the shareable portfolio link.",
+      "featureId": "feature-add-the-6-uploaded-images-as-static-frontend-assets-and-register-them-as-gallery-media-items-for-a-new-carpet-category-used-by-the-additional-offering-carpet-installation-uploaded-files-to-add-carpet4-jpeg-carpet2-jpeg-carpet1-jpeg-carpet3-jpeg-carpet1-1-jpeg-screenshot-2026-02-12-215137-png",
+      "featureTitle": "Add the 6 uploaded images as static frontend assets and register them as gallery media items for a new 'carpet' category used by the additional offering 'Carpet Installation'. Uploaded files to add: `carpet4.jpeg`, `carpet2.jpeg`, `carpet1.jpeg`, `carpet3.jpeg`, `carpet1.1.jpeg`, `Screenshot 2026-02-12 215137.png`.",
       "files": [
-        "frontend/src/components/branding/PortfolioDirectLink.tsx",
-        "frontend/src/pages/GalleryPage.tsx"
+        "frontend/src/content/galleryMedia.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -42,7 +33,26 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-31"
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-additional-offerings-ui-so-that-the-carpet-installation-offering-displays-a-thumbnail-grid-of-the-new-carpet-images-reusing-the-existing-mediastrip-component",
+      "featureTitle": "Update the 'Additional Offerings' UI so that the 'Carpet Installation' offering displays a thumbnail grid of the new carpet images (reusing the existing `MediaStrip` component).",
+      "files": [
+        "frontend/src/content/services.ts",
+        "frontend/src/pages/ServicesPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

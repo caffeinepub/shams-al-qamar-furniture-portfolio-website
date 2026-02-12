@@ -1,5 +1,6 @@
 import SectionHeader from '@/components/branding/SectionHeader';
 import ServiceSection from '@/components/services/ServiceSection';
+import MediaStrip from '@/components/media/MediaStrip';
 import { services, additionalOfferings } from '@/content/services';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -29,15 +30,22 @@ export default function ServicesPage() {
                 {additionalOfferings.map((offering, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 rounded-lg border border-border bg-muted/30 p-4"
+                    className="flex flex-col gap-3 rounded-lg border border-border bg-muted/30 p-4"
                   >
-                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20">
-                      <span className="text-xs font-bold text-gold">✓</span>
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20">
+                        <span className="text-xs font-bold text-gold">✓</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">{offering.title}</h4>
+                        <p className="text-sm text-muted-foreground">{offering.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold">{offering.title}</h4>
-                      <p className="text-sm text-muted-foreground">{offering.description}</p>
-                    </div>
+                    {offering.mediaCategory && (
+                      <div className="mt-2">
+                        <MediaStrip category={offering.mediaCategory} />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

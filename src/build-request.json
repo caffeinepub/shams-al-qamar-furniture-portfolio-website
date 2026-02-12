@@ -1,57 +1,84 @@
 {
   "kind": "build_request",
-  "title": "Resolve deployment/build failure and publish live portfolio URL",
-  "priority": "high",
+  "title": "Update service galleries: remove Full Interior Fit-outs images and add Carpet Installation images",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-30",
-      "text": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
-      "target": "both",
+      "id": "REQ-1",
+      "text": "Remove the existing gallery images from the 'Full Interior Fit-outs' service section so that the service shows the empty-gallery placeholder ('Gallery images coming soon...') instead of thumbnails.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "recent-messages"
         ],
         "quotes": [
-          "so solve it and give me the result"
+          "remove previous images of  'full interior fit-outs'  service we will then add images in that section"
         ]
       },
       "acceptanceCriteria": [
-        "A production build completes successfully with no TypeScript errors.",
-        "The deployed site loads without runtime errors in the browser console.",
-        "All routes defined in `frontend/src/App.tsx` (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) render successfully after deployment.",
-        "All media referenced from `frontend/src/content/galleryMedia.ts` resolves to valid URLs (no broken images for Majlis or other categories)."
+        "`frontend/src/content/galleryMedia.ts` no longer contains any `GalleryItem` entries with `category: 'full-interior'`.",
+        "On the Services page, the 'Full Interior Fit-outs' service section renders the empty-gallery placeholder block from `MediaStrip` (no thumbnails)."
       ]
     },
     {
-      "id": "REQ-31",
-      "text": "After a successful deployment, provide the live website URL and the direct Portfolio link (the live URL plus `/gallery`) as the shareable portfolio link.",
-      "target": "unknown",
+      "id": "REQ-2",
+      "text": "Add the 6 uploaded images as static frontend assets and register them as gallery media items for a new 'carpet' category used by the additional offering 'Carpet Installation'. Uploaded files to add: `carpet4.jpeg`, `carpet2.jpeg`, `carpet1.jpeg`, `carpet3.jpeg`, `carpet1.1.jpeg`, `Screenshot 2026-02-12 215137.png`.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "recent-messages"
         ],
         "quotes": [
-          "so solve it and give me the result"
+          "add this attached images to this additional service   carpet service"
         ]
       },
       "acceptanceCriteria": [
-        "A live URL to the deployed site is available.",
-        "A direct Portfolio URL ending in `/gallery` is provided."
+        "All 6 uploaded image files are present under `frontend/public/assets/` (preserve filenames exactly, including spaces and punctuation).",
+        "`frontend/src/content/galleryMedia.ts` includes 6 new `GalleryItem` entries (type `image`) that reference the new assets via `path: 'assets/<filename>'` and share a single, consistent category string for carpet (e.g., `carpet-installation`).",
+        "No existing gallery categories are broken (other service galleries still load their images)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the 'Additional Offerings' UI so that the 'Carpet Installation' offering displays a thumbnail grid of the new carpet images (reusing the existing `MediaStrip` component).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "add this attached images to this additional service   carpet service"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The 'Additional Offerings' card for 'Carpet Installation' shows a `MediaStrip` directly within/under the offering content, rendering up to 4 thumbnails (consistent with current `MediaStrip` default behavior).",
+        "Other additional offerings (Roller Blinds, Vertical Blinds, Parquet Flooring) remain unchanged and do not show a media strip.",
+        "No console errors occur due to missing categories/paths when visiting the Services page."
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single Motoko actor in `backend/main.mo`; only add `backend/migration.mo` if state upgrades are required.",
-    "Do not edit files under `frontend/src/components/ui` or any paths listed in `frontend.immutablePaths` (compose them instead).",
-    "Use English for any user-facing text."
+    "Do not modify any files under `frontend/src/components/ui` (shadcn components).",
+    "Do not modify files listed in `frontend.immutablePaths` in SYSTEM_CONTEXT.",
+    "Keep all backend logic unchanged; this update is content/UI-only."
   ],
   "nonGoals": [
-    "Adding new pages or features beyond fixing build/deploy and publishing the live URL.",
-    "Introducing external databases or non-supported backend technologies.",
-    "Adding third-party authentication providers beyond Internet Identity."
+    "Adding new backend APIs or storing images in the backend canister.",
+    "Adding images for other additional offerings besides 'Carpet Installation'.",
+    "Creating or editing generated images; use the user-uploaded images as-is."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

@@ -1,239 +1,32 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 29,
-  "summary": "Portfolio website project for Shams Al Qamar Furniture (furniture/interiors business) with multi-page, video-referenced theme, service sections, and contact/location details; content to be sourced from provided social media links.",
-  "architectural_notes": [
-    "Site should be organized into clear, separate sections/pages per service category (Curtains & Drapes, Wallpaper Solutions, Full Interior, Turnkey Service, etc.).",
-    "Include prominent Contact/Location information and links to social platforms; portfolio media to be curated from provided social profiles.",
-    "Approved information architecture: organize the site/portfolio by service categories (Option 1: sections by service), including Majlis / Arabic Seating.",
-    "Ensure all placeholder/template branding (e.g., “AURUM”) is replaced with Shams Al Qamar-approved branding text such as “SAQ” across header, titles, metadata, and components.",
-    "Improve SAQ branding presentation (logo/wordmark styling) so “SAQ” looks polished and consistent with the site theme.",
-    "Ensure each service section includes a relevant image/media strip (not just Curtains & Drapes) to maintain consistent visual presentation across the Services page.",
-    "Finalize/polish the Majlis / Arabic Seating section (media visibility + visual presentation) as the last major step before considering the portfolio ready for sharing/finalization."
-  ],
-  "known_issues": [
-    "Deployment/build failed during last attempt; site not deployed yet. User requested a fresh build/rebuild (\"start build\").",
-    "Build/deploy is currently blocked by a system configuration error (Caffeine platform error) encountered when attempting to rebuild.",
-    "User reports an error in the deployed Draft Version 6 and requests regeneration/rebuild before sharing the direct live portfolio link.",
-    "Majlis / Arabic Seating section visual presentation is not satisfactory (looks “a little ugly”) and needs UI/design refinement.",
-    "Majlis / Arabic Seating section images are not visible (media not rendering) and need to be fixed.",
-    "Majlis / Arabic Seating section images are still not visible even in Draft Version 12; requires further fix before finalizing the portfolio."
-  ],
-  "isFixRequest": true,
+  "projectStateVersion": 3,
+  "summary": "Service-based app/site with section-specific image galleries (e.g., Full Interior Fit-outs, Carpet Service) being updated via deployments.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-create-a-responsive-multi-page-portfolio-website-for-shams-al-qamar-furniture-with-website-like-navigation-not-a-single-slide-deck-using-the-provided-english-copy-as-the-primary-content",
-      "title": "Create a responsive, multi-page portfolio website for “Shams Al Qamar Furniture” with website-like navigation (not a single slide deck), using the provided English copy as the primary content.",
+      "id": "feature-remove-the-existing-gallery-images-from-the-full-interior-fit-outs-service-section-so-that-the-service-shows-the-empty-gallery-placeholder-gallery-images-coming-soon-instead-of-thumbnails",
+      "title": "Remove the existing gallery images from the 'Full Interior Fit-outs' service section so that the service shows the empty-gallery placeholder ('Gallery images coming soon...') instead of thumbnails.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-a-coherent-visual-theme-consistent-across-all-pages-colors-typography-spacing-component-style-with-an-interiors-furniture-aesthetic-avoid-default-template-look-do-not-use-a-blue-purple-theme",
-      "title": "Implement a coherent visual theme consistent across all pages (colors, typography, spacing, component style) with an interiors/furniture aesthetic; avoid default/template look. Do not use a blue/purple theme.",
+      "id": "feature-add-the-6-uploaded-images-as-static-frontend-assets-and-register-them-as-gallery-media-items-for-a-new-carpet-category-used-by-the-additional-offering-carpet-installation-uploaded-files-to-add-carpet4-jpeg-carpet2-jpeg-carpet1-jpeg-carpet3-jpeg-carpet1-1-jpeg-screenshot-2026-02-12-215137-png",
+      "title": "Add the 6 uploaded images as static frontend assets and register them as gallery media items for a new 'carpet' category used by the additional offering 'Carpet Installation'. Uploaded files to add: `carpet4.jpeg`, `carpet2.jpeg`, `carpet1.jpeg`, `carpet3.jpeg`, `carpet1.1.jpeg`, `Screenshot 2026-02-12 215137.png`.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-core-pages-sections-reflecting-the-user-provided-outline-and-business-information-1-home-title-company-name-tagline-crafting-elegance-tailoring-spaces-founder-role-line-placeholder-contact-summary-qr-code-block-2-about-3-vision-mission-4-what-we-do-services-overview",
-      "title": "Add core pages/sections reflecting the user-provided outline and business information: (1) Home/Title (company name + tagline “Crafting Elegance, Tailoring Spaces” + founder/role line placeholder + contact summary + QR code block), (2) About, (3) Vision & Mission, (4) What We Do/Services overview.",
+      "id": "feature-update-the-additional-offerings-ui-so-that-the-carpet-installation-offering-displays-a-thumbnail-grid-of-the-new-carpet-images-reusing-the-existing-mediastrip-component",
+      "title": "Update the 'Additional Offerings' UI so that the 'Carpet Installation' offering displays a thumbnail grid of the new carpet images (reusing the existing `MediaStrip` component).",
       "reqIds": [
         "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-dedicated-service-pages-or-clearly-separated-service-sections-for-each-category-with-descriptive-copy-and-media-slots-curtains-drapes-including-motorized-curtains-wallpaper-solutions-full-interior-fit-outs-residential-commercial-turnkey-service-consultation-to-installation-plus-additional-offerings-list-carpet-pvc-carpet-installation-roller-vertical-blinds-parquet-flooring-sofa-upholstery-new-sofa-sets",
-      "title": "Create dedicated service pages or clearly separated service sections for each category, with descriptive copy and media slots: Curtains & Drapes (including motorized curtains), Wallpaper Solutions, Full Interior Fit-outs (residential & commercial), Turnkey Service (consultation to installation), plus additional offerings list (carpet/PVC carpet installation, roller/vertical blinds, parquet flooring, sofa upholstery/new sofa sets).",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-gallery-work-area-that-can-display-photos-and-videos-organized-by-the-same-service-categories-curtains-drapes-wallpaper-full-interior-turnkey-etc-populate-the-gallery-using-manually-provided-downloaded-media-assets-sourced-from-the-provided-social-links-no-automated-scraping",
-      "title": "Add a “Gallery/Work” area that can display photos and videos, organized by the same service categories (Curtains & Drapes, Wallpaper, Full Interior, Turnkey, etc.). Populate the gallery using manually provided/downloaded media assets sourced from the provided social links (no automated scraping).",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-contact-page-section-that-prominently-displays-the-provided-email-phone-contacts-with-names-and-location-include-click-to-call-and-click-to-email-links-where-supported",
-      "title": "Add a Contact page/section that prominently displays the provided email, phone contacts (with names), and location; include click-to-call and click-to-email links where supported.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-social-media-links-instagram-tiktok-snapchat-in-the-header-and-or-footer-using-the-exact-urls-provided-by-the-user",
-      "title": "Add social media links (Instagram, TikTok, Snapchat) in the header and/or footer, using the exact URLs provided by the user.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-required-generated-brand-images-to-the-project-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-e-g-header-logo-area-hero-section",
-      "title": "Add required generated brand images to the project as static assets under frontend/public/assets/generated and use them in the UI (e.g., header/logo area, hero section).",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-two-new-first-class-service-sections-sofa-upholstery-new-sofa-sets-and-majlis-arabic-seating-to-the-services-page-using-the-existing-service-section-by-category-structure-servicesection-cards-with-mediastrip",
-      "title": "Add two new first-class service sections—“Sofa Upholstery & New Sofa Sets” and “Majlis / Arabic Seating”—to the Services page using the existing service-section-by-category structure (ServiceSection cards with MediaStrip).",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-the-gallery-page-supports-the-new-service-categories-sofa-upholstery-new-sofa-sets-and-majlis-arabic-seating-as-filter-tabs-even-when-there-are-no-media-items-yet-while-keeping-the-existing-service-category-filtering-behavior-for-populated-categories",
-      "title": "Ensure the Gallery page supports the new service categories (“Sofa Upholstery & New Sofa Sets” and “Majlis / Arabic Seating”) as filter tabs even when there are no media items yet, while keeping the existing service-category filtering behavior for populated categories.",
-      "reqIds": [
-        "REQ-10"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-the-30-user-uploaded-images-as-static-frontend-assets-and-integrate-them-into-the-site-s-gallery-and-service-section-mediastrips-by-assigning-each-image-to-the-most-appropriate-existing-service-category-matching-services-ts-ids-and-adding-corresponding-entries-to-frontend-src-content-gallerymedia-ts",
-      "title": "Add the 30 user-uploaded images as static frontend assets and integrate them into the site’s Gallery and Service-section MediaStrips by assigning each image to the most appropriate existing service category (matching `services.ts` IDs) and adding corresponding entries to `frontend/src/content/galleryMedia.ts`.",
-      "reqIds": [
-        "REQ-12"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-use-the-uploaded-saq-logo-image-img-20260205-wa0001-1-jpg-as-the-site-brand-mark-in-the-header-and-footer-and-update-user-facing-metadata-to-reflect-saq-branding-including-the-html-document-title-ensure-no-user-facing-text-contains-the-placeholder-brand-aurum-anywhere-in-the-frontend",
-      "title": "Use the uploaded SAQ logo image (`IMG-20260205-WA0001-1.jpg`) as the site brand mark in the header and footer, and update user-facing metadata to reflect SAQ branding (including the HTML document title). Ensure no user-facing text contains the placeholder brand “AURUM” anywhere in the frontend.",
-      "reqIds": [
-        "REQ-13"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-improve-the-visual-presentation-of-the-saq-brand-mark-so-it-no-longer-looks-ugly-ensure-the-site-uses-the-correct-provided-saq-logo-asset-consistently-and-render-it-with-clean-sizing-spacing-and-crisp-quality-in-both-the-header-and-footer",
-      "title": "Improve the visual presentation of the SAQ brand mark so it no longer looks “ugly”: ensure the site uses the correct provided SAQ logo asset consistently and render it with clean sizing, spacing, and crisp quality in both the Header and Footer.",
-      "reqIds": [
-        "REQ-15"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-the-same-image-correction-cleanup-treatment-used-for-the-saq-logo-to-all-other-portfolio-gallery-images-currently-referenced-by-the-site-regenerate-the-corrected-versions-as-new-static-assets-and-update-the-frontend-to-use-the-regenerated-assets-everywhere-those-images-appear-gallery-page-medialightbox-and-any-service-mediastrips-that-pull-from-the-gallery-media-list",
-      "title": "Apply the same image correction/cleanup treatment used for the SAQ logo to all other portfolio/gallery images currently referenced by the site, regenerate the corrected versions as new static assets, and update the frontend to use the regenerated assets everywhere those images appear (Gallery page, MediaLightbox, and any service MediaStrips that pull from the gallery media list).",
-      "reqIds": [
-        "REQ-16"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-identify-and-fix-the-error-reported-in-the-current-deployed-draft-so-the-portfolio-site-runs-without-runtime-errors-and-builds-successfully-no-typescript-errors-routing-errors-or-missing-asset-path-errors",
-      "title": "Identify and fix the error reported in the current deployed draft so the portfolio site runs without runtime errors and builds successfully (no TypeScript errors, routing errors, or missing asset-path errors).",
-      "reqIds": [
-        "REQ-18"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-rename-the-primary-navigation-and-footer-link-label-from-gallery-to-portfolio-while-keeping-the-existing-route-path-gallery-and-ensuring-the-gallery-page-header-and-seo-relevant-page-title-heading-remain-consistent-and-user-friendly",
-      "title": "Rename the primary navigation and footer link label from \"Gallery\" to \"Portfolio\" while keeping the existing route path `/gallery` and ensuring the Gallery page header and SEO-relevant page title/heading remain consistent and user-friendly.",
-      "reqIds": [
-        "REQ-19"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-deploy-publish-the-regenerated-build-and-provide-the-direct-live-url-to-the-portfolio-page-the-deployed-site-url-plus-gallery-as-the-direct-link-of-our-portfolio",
-      "title": "Deploy/publish the regenerated build and provide the direct live URL to the portfolio page (the deployed site URL plus `/gallery`) as the \"direct link of our portfolio\".",
-      "reqIds": [
-        "REQ-20"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-frontend-src-content-gallerymedia-ts-uses-service-category-ids-that-exactly-match-frontend-src-content-services-ts-ids-so-that-each-servicesection-renders-the-correct-images-via-mediastrip-e-g-replace-the-current-category-wallpaper-entries-with-category-wallpaper-solutions-and-verify-all-other-categories-align-to-curtains-drapes-wallpaper-solutions-full-interior-turnkey-service-sofa-upholstery-majlis-seating",
-      "title": "Ensure `frontend/src/content/galleryMedia.ts` uses service category IDs that exactly match `frontend/src/content/services.ts` IDs so that each `ServiceSection` renders the correct images via `MediaStrip` (e.g., replace the current `category: \"wallpaper\"` entries with `category: \"wallpaper-solutions\"`, and verify all other categories align to: `curtains-drapes`, `wallpaper-solutions`, `full-interior`, `turnkey-service`, `sofa-upholstery`, `majlis-seating`).",
-      "reqIds": [
-        "REQ-21"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-populate-the-remaining-service-categories-beyond-curtains-drapes-with-appropriate-image-entries-in-frontend-src-content-gallerymedia-ts-so-that-each-service-section-on-frontend-src-pages-servicespage-tsx-displays-up-to-4-images-in-its-mediastrip-wallpaper-solutions-full-interior-fit-outs-turnkey-service-sofa-upholstery-new-sofa-sets-majlis-arabic-seating-use-existing-static-assets-already-present-in-the-repo-e-g-under-frontend-public-assets-generated-and-do-not-introduce-automated-scraping",
-      "title": "Populate the remaining service categories (beyond `curtains-drapes`) with appropriate image entries in `frontend/src/content/galleryMedia.ts` so that each service section on `frontend/src/pages/ServicesPage.tsx` displays up to 4 images in its `MediaStrip` (Wallpaper Solutions, Full Interior Fit-outs, Turnkey Service, Sofa Upholstery & New Sofa Sets, Majlis / Arabic Seating). Use existing static assets already present in the repo (e.g., under `frontend/public/assets/generated`) and do not introduce automated scraping.",
-      "reqIds": [
-        "REQ-22"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-the-user-uploaded-majlis-images-img-20260205-wa0046-2-jpg-img-20260205-wa0047-2-jpg-img-20260205-wa0048-2-jpg-to-the-frontend-as-static-assets-and-register-them-in-frontend-src-content-gallerymedia-ts-under-the-majlis-seating-category-so-they-appear-in-both-the-services-page-majlis-section-mediastrip-and-the-portfolio-gallery-majlis-tab",
-      "title": "Add the user-uploaded Majlis images (IMG-20260205-WA0046-2.jpg, IMG-20260205-WA0047-2.jpg, IMG-20260205-WA0048-2.jpg) to the frontend as static assets and register them in `frontend/src/content/galleryMedia.ts` under the `majlis-seating` category so they appear in both the Services page Majlis section (MediaStrip) and the Portfolio (/gallery) Majlis tab.",
-      "reqIds": [
-        "REQ-23"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-remove-or-re-categorize-any-existing-gallerymedia-items-currently-assigned-to-majlis-seating-that-are-not-majlis-arabic-seating-images-e-g-sofa-only-or-curtains-images-so-that-majlis-content-is-not-mixed-with-sofa-upholstery-content",
-      "title": "Remove or re-categorize any existing `galleryMedia` items currently assigned to `majlis-seating` that are not Majlis/Arabic seating images (e.g., sofa-only or curtains images), so that Majlis content is not mixed with Sofa Upholstery content.",
-      "reqIds": [
-        "REQ-24"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-improve-the-visual-design-of-the-majlis-arabic-seating-service-section-on-the-services-page-so-it-looks-polished-and-consistent-with-the-rest-of-the-website-theme-without-changing-the-service-category-structure-ids-or-routes-this-should-include-targeted-styling-refinements-for-the-majlis-seating-section-e-g-card-header-background-spacing-typography-treatment-and-if-needed-small-presentation-improvements-to-the-mediastrip-for-that-section-so-the-majlis-images-look-premium-and-well-composed",
-      "title": "Improve the visual design of the “Majlis / Arabic Seating” service section on the Services page so it looks polished and consistent with the rest of the website theme (without changing the service category structure, IDs, or routes). This should include targeted styling refinements for the `majlis-seating` section (e.g., card/header/background/spacing/typography treatment) and, if needed, small presentation improvements to the MediaStrip for that section so the Majlis images look premium and well-composed.",
-      "reqIds": [
-        "REQ-25"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-fix-the-majlis-arabic-seating-media-so-the-three-majlis-images-render-correctly-not-blank-missing-in-both-a-the-services-page-majlis-section-mediastrip-and-b-the-portfolio-page-gallery-majlis-tab-by-ensuring-the-static-image-files-exist-in-the-frontend-public-assets-and-that-frontend-src-content-gallerymedia-ts-path-values-resolve-to-valid-urls-for-these-items-majlis-001-img-20260205-wa0046-2-jpg-majlis-002-img-20260205-wa0047-2-jpg-majlis-003-img-20260205-wa0048-2-jpg",
-      "title": "Fix the Majlis / Arabic Seating media so the three Majlis images render correctly (not blank / missing) in both (a) the Services page Majlis section MediaStrip and (b) the Portfolio page (/gallery) Majlis tab, by ensuring the static image files exist in the frontend public assets and that `frontend/src/content/galleryMedia.ts` `path` values resolve to valid URLs for these items: `majlis-001` (`IMG-20260205-WA0046-2.jpg`), `majlis-002` (`IMG-20260205-WA0047-2.jpg`), `majlis-003` (`IMG-20260205-WA0048-2.jpg`).",
-      "reqIds": [
-        "REQ-27"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-robust-frontend-fallback-ui-for-majlis-and-other-broken-media-so-that-if-an-image-fails-to-load-the-user-sees-a-consistent-placeholder-message-card-rather-than-an-empty-blank-tile-in-the-portfolio-grid-and-the-lightbox-medialightbox",
-      "title": "Add robust frontend fallback UI for Majlis (and other) broken media so that if an image fails to load, the user sees a consistent placeholder message/card rather than an empty/blank tile in the Portfolio grid and the lightbox (MediaLightbox).",
-      "reqIds": [
-        "REQ-28"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-further-refine-the-visual-presentation-of-the-majlis-arabic-seating-service-section-to-match-the-premium-look-of-the-other-sections-keep-the-existing-theme-and-overall-vibe-without-changing-the-service-category-structure-ids-or-routes",
-      "title": "Further refine the visual presentation of the Majlis / Arabic Seating service section to match the premium look of the other sections (keep the existing theme and overall vibe), without changing the service/category structure, IDs, or routes.",
-      "reqIds": [
-        "REQ-29"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-diagnose-and-fix-the-current-build-deployment-failure-including-any-caffeine-ic-deployment-configuration-issues-and-any-project-level-build-errors-so-the-project-builds-and-deploys-successfully-without-runtime-errors-typescript-errors-routing-errors-or-missing-asset-path-errors",
-      "title": "Diagnose and fix the current build/deployment failure (including any Caffeine/IC deployment configuration issues and any project-level build errors) so the project builds and deploys successfully without runtime errors, TypeScript errors, routing errors, or missing asset-path errors.",
-      "reqIds": [
-        "REQ-30"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-after-a-successful-deployment-provide-the-live-website-url-and-the-direct-portfolio-link-the-live-url-plus-gallery-as-the-shareable-portfolio-link",
-      "title": "After a successful deployment, provide the live website URL and the direct Portfolio link (the live URL plus `/gallery`) as the shareable portfolio link.",
-      "reqIds": [
-        "REQ-31"
       ],
       "version": 1
     }
@@ -241,117 +34,19 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create a portfolio website for Shams Al Qamar Furniture with website-like pages and a theme matching the referenced video/style",
+      "summary": "Remove previous images from the 'Full interior fit-outs' service section (images will be added later).",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "Add dedicated service sections/pages (e.g., Curtains & Drapes, Wallpaper Solutions, Full Interior Fit-outs, Turnkey Service, plus listed offerings)",
+      "summary": "Add the attached images to the additional service section: 'Carpet service'.",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Include contact details and location (email, 3 phone contacts, Deira Dubai UAE) prominently on the site",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Integrate/feature social media links (Instagram, TikTok, Snapchat) and source photos/videos from those platforms for site content",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Add a dedicated “Majlis / Arabic Seating” service section/page as part of the service-based site organization",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Replace any placeholder brand/name text “AURUM” with “SAQ” throughout the website UI/content",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Update the site theme styling (colors/typography/components) to a new selected theme direction",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-8",
-      "summary": "Add the customer-provided images into the appropriate service sections and gallery areas",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-9",
-      "summary": "Replace any placeholder brand/name text “AURUM” with “SAQ” across the entire frontend (all pages, header/footer branding, navigation labels, headings, alt text, and any metadata such as the HTML document title) so that “AURUM” is no longer visible or present in user-facing content.",
-      "reqIds": [
-        "REQ-11"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-12",
-      "summary": "Fix the previous build/deployment failure by ensuring the project builds successfully after media and branding updates, with all asset paths valid and no TypeScript or routing errors.",
-      "reqIds": [
-        "REQ-14"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-13",
-      "summary": "Apply the same correction/cleanup treatment used for the SAQ logo to the other site images and regenerate updated versions",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-14",
-      "summary": "Provide the live portfolio website link in chat (deploy/publish the current build and share URL)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-16",
-      "summary": "Publish/deploy the current portfolio website build and provide the live website URL in chat.",
-      "reqIds": [
-        "REQ-17"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-17",
-      "summary": "Populate other service sections (beyond Curtains & Drapes) with appropriate images similar to the Custom Curtains & Drapes section to improve visual completeness",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-18",
-      "summary": "Fix Majlis section media: remove/switch incorrectly placed sofa images and add the correct user-mentioned Majlis images so Majlis / Arabic Seating displays appropriate photos",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-19",
-      "summary": "Improve the visual design/presentation of the Majlis / Arabic Seating section (currently looks “a little ugly”) and then share the direct live portfolio website link in chat",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-20",
-      "summary": "Fix the Majlis / Arabic Seating images so they render correctly in both (a) the Services page Majlis section MediaStrip and (b) the Portfolio (/gallery) Majlis tab by ensuring the three Majlis image files exist as static public assets and their `galleryMedia.ts` `path` values resolve to valid URLs.",
-      "reqIds": [
-        "REQ-26"
-      ],
       "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "Shams Al Qamar Furniture Portfolio Website",
+  "projectName": "Update service galleries: remove Full Interior Fit-outs images and add Carpet Installation images",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

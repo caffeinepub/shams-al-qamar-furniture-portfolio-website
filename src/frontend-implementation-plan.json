@@ -1,182 +1,87 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix frontend build/deploy issues and ensure portfolio links/assets work in production",
+  "title": "Update service galleries: remove Full Interior Fit-outs images and add Carpet Installation images",
   "requirements": [
     {
-      "id": "REQ-30",
-      "summary": "Fix frontend build/deploy failures by hardening SPA routing fallbacks and making all referenced media/branding asset paths resolve correctly after deployment.",
+      "id": "REQ-1",
+      "summary": "Remove all 'Full Interior Fit-outs' gallery items so the Services page shows the MediaStrip empty-gallery placeholder for that service.",
       "acceptanceCriteria": [
-        "A production build completes successfully with no TypeScript errors.",
-        "The deployed site loads without runtime errors in the browser console.",
-        "All routes defined in `frontend/src/App.tsx` (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) render successfully after deployment.",
-        "All media referenced from `frontend/src/content/galleryMedia.ts` resolves to valid URLs (no broken images for Majlis or other categories)."
+        "`frontend/src/content/galleryMedia.ts` no longer contains any `GalleryItem` entries with `category: 'full-interior'`.",
+        "On the Services page, the 'Full Interior Fit-outs' service section renders the empty-gallery placeholder block from `MediaStrip` (no thumbnails)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/lib/publicAsset.ts",
-          "operation": "create",
-          "description": "Create a small utility to resolve public asset URLs using the app’s runtime base path (e.g., leveraging `import.meta.env.BASE_URL`) so production deployments with non-root bases do not produce missing-asset errors. Verify the component's usage instructions before implementing."
-        },
-        {
           "path": "frontend/src/content/galleryMedia.ts",
           "operation": "modify",
-          "description": "Update gallery media definitions to avoid hardcoded absolute asset paths that can break on certain deployments; store paths in a base-safe form and/or export a resolver (via `frontend/src/lib/publicAsset.ts`) so every item (including Majlis) resolves to a valid URL in production. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/content/branding.ts",
-          "operation": "modify",
-          "description": "Make the logo source base-path safe (avoid hardcoded absolute paths that can break after deployment) by using the shared public-asset resolver. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Update the hero background image reference to use the shared base-path-safe public asset resolution (instead of a hardcoded absolute URL) to prevent missing asset-path errors after deployment. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/GalleryPage.tsx",
-          "operation": "modify",
-          "description": "Ensure gallery thumbnails use the base-path-safe resolved URL for each media item to prevent broken images/videos after deployment while keeping existing routing and UI intact. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/media/MediaStrip.tsx",
-          "operation": "modify",
-          "description": "Update MediaStrip to render images/videos using the base-path-safe resolved URL and keep the existing error/loading behavior so production deployments do not show broken media. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/media/MediaLightbox.tsx",
-          "operation": "modify",
-          "description": "Update lightbox media rendering to use the base-path-safe resolved URL for images/videos so opening any item works after deployment with no console errors. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/public/404.html",
-          "operation": "create",
-          "description": "Add an SPA fallback 404 page suitable for static hosting so deep-linked routes (e.g., `/gallery`) still load the app shell after deployment (avoids routing errors on refresh). Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/public/_redirects",
-          "operation": "create",
-          "description": "Add a static-hosting redirect rule file (where supported) to route all requests to the app entry so all TanStack Router routes work after deployment. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/public/assets/generated/saq-logo-clean.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated logo asset at this exact path so `brandAssets.logo` resolves in production (no missing asset-path errors)."
-        },
-        {
-          "path": "frontend/public/assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png",
-          "operation": "create",
-          "description": "Add the generated hero background image at this exact path so the Home hero background resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0004-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0005-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0006-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0007-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0009-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0011-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0013-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0016-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0017-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0018-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/generated/IMG-20260205-WA0019-1-clean.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add this generated gallery image at this exact path so all referenced gallery media resolves in production."
-        },
-        {
-          "path": "frontend/public/assets/majlis/IMG-20260205-WA0046-2.jpg",
-          "operation": "create",
-          "description": "Add this Majlis gallery image at this exact path so Majlis items render without broken images after deployment."
-        },
-        {
-          "path": "frontend/public/assets/majlis/IMG-20260205-WA0047-2.jpg",
-          "operation": "create",
-          "description": "Add this Majlis gallery image at this exact path so Majlis items render without broken images after deployment."
-        },
-        {
-          "path": "frontend/public/assets/majlis/IMG-20260205-WA0048-2.jpg",
-          "operation": "create",
-          "description": "Add this Majlis gallery image at this exact path so Majlis items render without broken images after deployment."
+          "description": "Delete the existing `GalleryItem` entries for the 'Full Interior Fit-outs' section by removing all items with `category: 'full-interior'`, ensuring `MediaStrip` receives an empty list and renders its placeholder."
         }
       ]
     },
     {
-      "id": "REQ-31",
-      "summary": "Ensure the deployed site can surface and copy the live site URL and the direct portfolio URL (`/gallery`) as shareable links.",
+      "id": "REQ-2",
+      "summary": "Add 6 uploaded carpet images as static assets and register them as gallery media items under a new carpet gallery category.",
       "acceptanceCriteria": [
-        "A live URL to the deployed site is available.",
-        "A direct Portfolio URL ending in `/gallery` is provided."
+        "All 6 uploaded image files are present under `frontend/public/assets/` (preserve filenames exactly, including spaces and punctuation).",
+        "`frontend/src/content/galleryMedia.ts` includes 6 new `GalleryItem` entries (type `image`) that reference the new assets via `path: 'assets/<filename>'` and share a single, consistent category string for carpet (e.g., `carpet-installation`).",
+        "No existing gallery categories are broken (other service galleries still load their images)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/branding/PortfolioDirectLink.tsx",
-          "operation": "modify",
-          "description": "Enhance the existing shareable-link UI to clearly present both (1) the live site URL and (2) the portfolio URL ending in `/gallery`, with reliable copy-to-clipboard behavior in production deployments. Verify the component's usage instructions before implementing."
+          "path": "frontend/public/assets/carpet4.jpeg",
+          "operation": "create",
+          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet4.jpeg`."
         },
         {
-          "path": "frontend/src/pages/GalleryPage.tsx",
+          "path": "frontend/public/assets/carpet2.jpeg",
+          "operation": "create",
+          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet2.jpeg`."
+        },
+        {
+          "path": "frontend/public/assets/carpet1.jpeg",
+          "operation": "create",
+          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet1.jpeg`."
+        },
+        {
+          "path": "frontend/public/assets/carpet3.jpeg",
+          "operation": "create",
+          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet3.jpeg`."
+        },
+        {
+          "path": "frontend/public/assets/carpet1.1.jpeg",
+          "operation": "create",
+          "description": "Add the uploaded static image asset (preserve filename exactly): `carpet1.1.jpeg`."
+        },
+        {
+          "path": "frontend/public/assets/Screenshot 2026-02-12 215137.png",
+          "operation": "create",
+          "description": "Add the uploaded static image asset (preserve filename exactly, including spaces): `Screenshot 2026-02-12 215137.png`."
+        },
+        {
+          "path": "frontend/src/content/galleryMedia.ts",
           "operation": "modify",
-          "description": "Keep the portfolio link block prominently visible on the Portfolio (`/gallery`) page and ensure it uses the finalized live/portfolio URL logic for shareable links after deployment. Verify the component's usage instructions before implementing."
+          "description": "Append 6 new `GalleryItem` entries of type `image` for a single new carpet category (use one consistent category string, e.g. `carpet-installation`). Each item should reference the new static assets using `path: 'assets/<filename>'` with exact filenames (including spaces/punctuation where applicable)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Render a MediaStrip of the carpet gallery inside the 'Carpet Installation' additional offering only.",
+      "acceptanceCriteria": [
+        "The 'Additional Offerings' card for 'Carpet Installation' shows a `MediaStrip` directly within/under the offering content, rendering up to 4 thumbnails (consistent with current `MediaStrip` default behavior).",
+        "Other additional offerings (Roller Blinds, Vertical Blinds, Parquet Flooring) remain unchanged and do not show a media strip.",
+        "No console errors occur due to missing categories/paths when visiting the Services page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/services.ts",
+          "operation": "modify",
+          "description": "Extend the `additionalOfferings` content to include an optional field (e.g., `mediaCategory`) on the 'Carpet Installation' item only, set to the same carpet category string used in `frontend/src/content/galleryMedia.ts` (e.g. `carpet-installation`). Leave other offerings unchanged (no media category)."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Import and render the existing `MediaStrip` component within/under the 'Carpet Installation' additional offering only (conditionally based on the new optional offering field), passing the carpet gallery category so the offering displays up to 4 thumbnails by default. Ensure other offerings render exactly as before without a media strip."
         }
       ]
     }

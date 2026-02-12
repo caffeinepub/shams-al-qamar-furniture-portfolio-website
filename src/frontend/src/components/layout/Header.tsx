@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from '@tanstack/react-router';
 import { Menu, X } from 'lucide-react';
-import { SiInstagram, SiTiktok, SiSnapchat } from 'react-icons/si';
+import { SiInstagram, SiTiktok, SiSnapchat, SiLinkedin, SiWhatsapp } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { brandAssets } from '@/content/branding';
@@ -98,6 +98,24 @@ export default function Header() {
           >
             <SiSnapchat className="h-5 w-5" />
           </a>
+          <a
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="LinkedIn"
+          >
+            <SiLinkedin className="h-5 w-5" />
+          </a>
+          <a
+            href={socialLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="WhatsApp"
+          >
+            <SiWhatsapp className="h-5 w-5" />
+          </a>
         </div>
 
         {/* Mobile Menu */}
@@ -149,6 +167,24 @@ export default function Header() {
                   aria-label="Snapchat"
                 >
                   <SiSnapchat className="h-6 w-6" />
+                </a>
+                <a
+                  href={socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  aria-label="LinkedIn"
+                >
+                  <SiLinkedin className="h-6 w-6" />
+                </a>
+                <a
+                  href={socialLinks.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  aria-label="WhatsApp"
+                >
+                  <SiWhatsapp className="h-6 w-6" />
                 </a>
               </div>
             </nav>

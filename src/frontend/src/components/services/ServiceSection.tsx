@@ -8,6 +8,7 @@ interface ServiceSectionProps {
 
 export default function ServiceSection({ service }: ServiceSectionProps) {
   const isMajlis = service.id === 'majlis-seating';
+  const isSofa = service.id === 'sofa-upholstery';
   
   return (
     <section id={service.id} className="scroll-mt-20">
@@ -38,7 +39,7 @@ export default function ServiceSection({ service }: ServiceSectionProps) {
             </div>
           )}
 
-          <MediaStrip category={service.id} />
+          <MediaStrip category={service.id} limit={isSofa ? 5 : undefined} />
         </CardContent>
       </Card>
     </section>

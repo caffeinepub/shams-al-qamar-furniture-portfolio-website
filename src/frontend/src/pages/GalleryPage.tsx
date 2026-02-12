@@ -35,7 +35,7 @@ export default function GalleryPage() {
         <p className="text-sm text-muted-foreground">
           {category === 'all'
             ? 'Portfolio images coming soon. Check our social media for the latest projects!'
-            : `Portfolio images for ${category.replace('-', ' ')} coming soon.`}
+            : `Portfolio images for ${category.replace(/-/g, ' ')} coming soon.`}
         </p>
       </div>
     </div>

@@ -1,13 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Fix the current build/deployment failure so the site deploys cleanly, and provide the live website URL plus a shareable Portfolio link.
+**Goal:** Update the Services page galleries by clearing the “Full Interior Fit-outs” gallery and adding a new image gallery for the “Carpet Installation” additional offering.
 
 **Planned changes:**
-- Diagnose and resolve deployment/build configuration issues and any project build errors causing the current failure.
-- Fix any TypeScript, routing, runtime, and asset-path issues that prevent a successful production build and a clean deployed run.
-- Ensure all routes in `frontend/src/App.tsx` (`/`, `/about`, `/vision-mission`, `/services`, `/gallery`, `/contact`) load after deployment.
-- Ensure all media referenced from `frontend/src/content/galleryMedia.ts` resolves to valid URLs (no broken images, including Majlis).
-- Publish the deployed site and provide the live URL and the direct Portfolio URL (`/gallery`).
+- Remove all existing gallery media entries for the “Full Interior Fit-outs” service so it shows the empty-gallery placeholder.
+- Add 6 provided carpet-related images as static assets under `frontend/public/assets/` (keeping filenames exactly) and register them in `frontend/src/content/galleryMedia.ts` under a single carpet gallery category.
+- Update the “Additional Offerings” UI so only “Carpet Installation” renders a `MediaStrip` using the new carpet category (other offerings unchanged).
 
-**User-visible outcome:** The deployed site loads without console errors, all pages/routes work, gallery images display correctly (including Majlis), and the user receives the live website URL and a shareable Portfolio link ending in `/gallery`.
+**User-visible outcome:** On the Services page, “Full Interior Fit-outs” shows “Gallery images coming soon...” with no thumbnails, and “Carpet Installation” displays a thumbnail grid of the newly added carpet images.

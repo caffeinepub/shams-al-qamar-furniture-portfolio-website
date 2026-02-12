@@ -10,9 +10,9 @@ export const services: Service[] = [
     id: 'curtains-drapes',
     title: 'Custom Curtains & Drapes',
     description:
-      'Transform your windows with our exquisite collection of custom curtains and drapes. From luxurious silk to elegant chiffon and natural linen, we offer a wide range of fabrics and styles. Our motorized curtain solutions provide modern convenience with timeless elegance.',
+      'Transform your windows with our exquisite collection of custom curtains and drapes. From luxurious silk to elegant Sheer and natural linen, we offer a wide range of fabrics and styles. Our motorized curtain solutions provide modern convenience with timeless elegance.',
     features: [
-      'Premium fabrics: silk, chiffon, linen',
+      'Premium fabrics: silk, Sheer, linen',
       'Motorized curtain systems',
       'Custom measurements and fitting',
       'Wide range of colors and patterns',
@@ -46,19 +46,6 @@ export const services: Service[] = [
     ],
   },
   {
-    id: 'turnkey-service',
-    title: 'Turnkey Service',
-    description:
-      'Experience hassle-free interior solutions with our comprehensive turnkey service. From initial design consultation to final installation, we manage every detail so you can enjoy a seamless transformation of your space.',
-    features: [
-      'Design consultation',
-      'Material selection',
-      'Project coordination',
-      'Professional installation',
-      'Post-installation support',
-    ],
-  },
-  {
     id: 'sofa-upholstery',
     title: 'Sofa Upholstery & New Sofa Sets',
     description:
@@ -86,10 +73,17 @@ export const services: Service[] = [
   },
 ];
 
-export const additionalOfferings = [
+export interface AdditionalOffering {
+  title: string;
+  description: string;
+  mediaCategory?: string;
+}
+
+export const additionalOfferings: AdditionalOffering[] = [
   {
     title: 'Carpet Installation',
     description: 'Premium carpet and PVC carpet solutions',
+    mediaCategory: 'carpet-installation',
   },
   {
     title: 'Roller Blinds',

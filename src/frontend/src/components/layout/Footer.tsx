@@ -1,5 +1,5 @@
 import { useNavigate } from '@tanstack/react-router';
-import { SiInstagram, SiTiktok, SiSnapchat } from 'react-icons/si';
+import { SiInstagram, SiTiktok, SiSnapchat, SiLinkedin, SiWhatsapp } from 'react-icons/si';
 import { Heart } from 'lucide-react';
 import { brandAssets } from '@/content/branding';
 import { publicAsset } from '@/lib/publicAsset';
@@ -117,6 +117,24 @@ export default function Footer() {
                 aria-label="Snapchat"
               >
                 <SiSnapchat className="h-6 w-6" />
+              </a>
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="LinkedIn"
+              >
+                <SiLinkedin className="h-6 w-6" />
+              </a>
+              <a
+                href={socialLinks.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="WhatsApp"
+              >
+                <SiWhatsapp className="h-6 w-6" />
               </a>
             </div>
           </div>

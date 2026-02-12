@@ -5,10 +5,12 @@ import { useState } from 'react';
 
 interface MediaStripProps {
   category: string;
+  limit?: number;
 }
 
-export default function MediaStrip({ category }: MediaStripProps) {
-  const media = galleryMedia.filter((item) => item.category === category).slice(0, 4);
+export default function MediaStrip({ category, limit }: MediaStripProps) {
+  const allMedia = galleryMedia.filter((item) => item.category === category);
+  const media = limit ? allMedia.slice(0, limit) : allMedia.slice(0, 4);
   const isMajlis = category === 'majlis-seating';
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const [imageLoading, setImageLoading] = useState<Record<string, boolean>>({});
