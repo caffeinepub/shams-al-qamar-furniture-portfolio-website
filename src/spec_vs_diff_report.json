@@ -1,41 +1,52 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T18:38:53.051Z",
-  "summary": "REQ-3 is partially implemented by wiring the Parquet Flooring additionalOfferings entry to mediaCategory \"parquet-flooring\" in services.ts. The required parquet image asset was not added, and the diff does not provide evidence of a new parquet-flooring GalleryItem or Services page rendering the MediaStrip for Parquet Flooring.",
+  "generatedAt": "2026-02-12T19:38:17.700Z",
+  "summary": "REQ-1/REQ-2/REQ-3 appear partially implemented via SiteLayout wiring to a new background filename, updated global background/overlay CSS, and HomePage hero overlay tweaks. However, the diff does not show the new background asset being added/replaced, and several unrelated content/features appear to have been introduced outside the requested background/theme refinement scope.",
   "missing_requirements": [
     {
-      "id": "REQ-1",
-      "requirement": "Create a new generated static image asset at frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg (loadable via the public assets approach).",
-      "reason": "The diff summary shows no added files, so there is no evidence the required image asset was created at the specified path/filename.",
-      "evidence": [
-        "File diff summary: \"Added: 0\" and \"ADDED FILES: - none\""
-      ]
-    },
-    {
       "id": "REQ-2",
-      "requirement": "Add at least one new GalleryItem in frontend/src/content/galleryMedia.ts with category \"parquet-flooring\" and path \"assets/generated/parquet-flooring-001.dim_1600x1200.jpg\" (unique id).",
-      "reason": "The shown/truncated portion of galleryMedia.ts contains curtains and wallpaper items only; there is no evidence of any new GalleryItem for category \"parquet-flooring\" or referencing the specified parquet image path.",
+      "requirement": "Provide and wire the updated futuristic background asset (wood-futuristic-bg.dim_1920x1080.png) as a static frontend asset so it actually exists at the referenced path.",
+      "reason": "SiteLayout references a new generated image filename, but the diff shows no added/modified image asset files; only code/CSS changes are present. Without the actual static asset, the new background may not render.",
       "evidence": [
-        "frontend/src/content/galleryMedia.ts (truncated): shows categories \"curtains-drapes\" and \"wallpaper-solutions\"; no visible \"parquet-flooring\" entry"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "requirement": "Ensure the Services page Additional Offerings Parquet Flooring card renders a MediaStrip and displays parquet-flooring media items.",
-      "reason": "While services.ts sets mediaCategory to \"parquet-flooring\", there is no diff evidence that frontend/src/pages/ServicesPage.tsx was updated (or already supports rendering MediaStrip for all offerings with mediaCategory) to display parquet media items.",
-      "evidence": [
-        "frontend/src/content/services.ts: Parquet Flooring offering includes mediaCategory: 'parquet-flooring'",
-        "File diff summary: no modification listed for frontend/src/pages/ServicesPage.tsx"
+        "frontend/src/components/layout/SiteLayout.tsx (references assets/generated/wood-futuristic-bg.dim_1920x1080.png)",
+        "File diff summary: Added files: none"
       ]
     }
   ],
-  "hallucinated_features": [],
+  "hallucinated_features": [
+    {
+      "description": "About page adds a new section with curated slogan options grouped by vibe (Luxury/Modern/Friendly) and corresponding siteCopy additions/changes (including tagline change).",
+      "reason": "BuildRequest explicitly disallows new user-facing copy and feature additions beyond background/theme refinement; this is unrelated to background wiring/styling and changes content.",
+      "evidence": [
+        "frontend-file-summaries.txt (AboutPage: \"new section showcasing curated slogan options...\")",
+        "frontend-file-summaries.txt (siteCopy.ts: tagline changed; curated slogan options added)"
+      ]
+    },
+    {
+      "description": "Services/Gallery/media components updated with additional functionality (conditional MediaStrip rendering, limits, enhanced loading/error handling, lightbox/base-path-safe media URLs, empty-state UI).",
+      "reason": "BuildRequest non-goals prohibit feature additions beyond background/theme refinement; these changes are functional enhancements unrelated to the background task.",
+      "evidence": [
+        "frontend-file-summaries.txt (ServicesPage: conditional MediaStrip rendering)",
+        "frontend-file-summaries.txt (ServiceSection: limit prop, premium styling)",
+        "frontend-file-summaries.txt (MediaStrip/MediaLightbox/GalleryPage: enhanced behaviors, filtering, empty states)"
+      ]
+    },
+    {
+      "description": "Tailwind theme extensions (new shadows, font families, backdropBlur, extensive color variable changes) beyond what is necessary to swap/overlay a background image.",
+      "reason": "While some styling changes are expected, the request scope is specifically background/theme refinement; adding broad design-system changes may be out of scope and risks unintended UI changes.",
+      "evidence": [
+        "frontend/tailwind.config.js (adds/changes fontFamily, boxShadow, backdropBlur, extended colors)"
+      ]
+    }
+  ],
   "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/content/galleryMedia.ts",
-    "frontend/src/content/services.ts",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

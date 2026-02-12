@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T18:38:53.054Z",
+  "generatedAt": "2026-02-12T19:38:17.702Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,35 +12,39 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Create a new generated static image asset for the Parquet Flooring service and place it under frontend/public/assets/generated with the exact filename specified in the image requirements.",
+        "summary": "Update the global site background to feel more engaging and futuristic while still matching the furniture/interior theme (improve on the current dull dark-wood look) and keep all page content readable.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg"
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg"
+          "frontend/src/index.css"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Add a new gallery media item for the Parquet Flooring category so it can be rendered by the existing MediaStrip component.",
+        "summary": "Wire the updated background asset into the global layout by updating SiteLayout and global CSS so the new futuristic background image is used instead of the current wood-dark-bg image.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/galleryMedia.ts"
+          "frontend/public/assets/generated/wood-futuristic-bg.dim_1920x1080.png",
+          "frontend/src/components/layout/SiteLayout.tsx",
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/src/content/galleryMedia.ts"
+          "frontend/public/assets/generated/wood-futuristic-bg.dim_1920x1080.png",
+          "frontend/src/components/layout/SiteLayout.tsx",
+          "frontend/src/index.css"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Enable media rendering for the Parquet Flooring entry in the Services page \"Additional Offerings\" section by wiring it to the Parquet Flooring media category.",
+        "summary": "Align the Home page hero background treatment with the new global futuristic furniture aesthetic so the hero section does not feel visually disconnected from the updated site-wide background.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/services.ts"
+          "frontend/src/pages/HomePage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/content/services.ts"
+          "frontend/src/pages/HomePage.tsx"
         ]
       }
     ]
@@ -50,9 +54,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg",
-    "frontend/src/content/galleryMedia.ts",
-    "frontend/src/content/services.ts",
+    "frontend/public/assets/generated/wood-futuristic-bg.dim_1920x1080.png",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

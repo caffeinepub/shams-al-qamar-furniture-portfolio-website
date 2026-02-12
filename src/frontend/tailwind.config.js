@@ -35,7 +35,7 @@ export default {
                 },
                 muted: {
                     DEFAULT: 'oklch(var(--muted) / <alpha-value>)',
-                    foreground: 'oklch(var(--muted-foreground) / <alpha-value>)'
+                    foreground: 'oklch(var(--muted-foreground))'
                 },
                 accent: {
                     DEFAULT: 'oklch(var(--accent) / <alpha-value>)',
@@ -51,49 +51,29 @@ export default {
                 },
                 gold: 'oklch(var(--gold))',
                 chart: {
-                    1: 'oklch(var(--chart-1))',
-                    2: 'oklch(var(--chart-2))',
-                    3: 'oklch(var(--chart-3))',
-                    4: 'oklch(var(--chart-4))',
-                    5: 'oklch(var(--chart-5))'
-                },
-                sidebar: {
-                    DEFAULT: 'oklch(var(--sidebar))',
-                    foreground: 'oklch(var(--sidebar-foreground))',
-                    primary: 'oklch(var(--sidebar-primary))',
-                    'primary-foreground': 'oklch(var(--sidebar-primary-foreground))',
-                    accent: 'oklch(var(--sidebar-accent))',
-                    'accent-foreground': 'oklch(var(--sidebar-accent-foreground))',
-                    border: 'oklch(var(--sidebar-border))',
-                    ring: 'oklch(var(--sidebar-ring))'
+                    '1': 'oklch(var(--chart-1))',
+                    '2': 'oklch(var(--chart-2))',
+                    '3': 'oklch(var(--chart-3))',
+                    '4': 'oklch(var(--chart-4))',
+                    '5': 'oklch(var(--chart-5))'
                 }
-            },
-            fontFamily: {
-                sans: ['Inter', 'system-ui', 'sans-serif'],
-                serif: ['Playfair Display', 'Georgia', 'serif'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)'
             },
+            fontFamily: {
+                sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+                serif: ['Lora', 'Georgia', 'serif']
+            },
             boxShadow: {
-                xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-                elegant: '0 4px 20px rgba(0,0,0,0.08)',
+                'elegant': '0 4px 20px -2px oklch(0.10 0.015 35 / 0.35)',
+                'elegant-lg': '0 10px 40px -5px oklch(0.10 0.015 35 / 0.45)',
+                'gold': '0 4px 20px -2px oklch(0.72 0.22 65 / 0.30)'
             },
-            keyframes: {
-                'accordion-down': {
-                    from: { height: '0' },
-                    to: { height: 'var(--radix-accordion-content-height)' }
-                },
-                'accordion-up': {
-                    from: { height: 'var(--radix-accordion-content-height)' },
-                    to: { height: '0' }
-                }
-            },
-            animation: {
-                'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+            backdropBlur: {
+                xs: '2px'
             }
         }
     },

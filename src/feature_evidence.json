@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-new-generated-static-image-asset-for-the-parquet-flooring-service-and-place-it-under-frontend-public-assets-generated-with-the-exact-filename-specified-in-the-image-requirements",
-      "featureTitle": "Create a new generated static image asset for the Parquet Flooring service and place it under frontend/public/assets/generated with the exact filename specified in the image requirements.",
-      "files": [],
+      "featureId": "feature-update-the-global-site-background-to-feel-more-engaging-and-futuristic-while-still-matching-the-furniture-interior-theme-improve-on-the-current-dull-dark-wood-look-and-keep-all-page-content-readable",
+      "featureTitle": "Update the global site background to feel more engaging and futuristic while still matching the furniture/interior theme (improve on the current dull dark-wood look) and keep all page content readable.",
+      "files": [
+        "frontend/src/index.css"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -18,10 +20,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-a-new-gallery-media-item-for-the-parquet-flooring-category-so-it-can-be-rendered-by-the-existing-mediastrip-component",
-      "featureTitle": "Add a new gallery media item for the Parquet Flooring category so it can be rendered by the existing MediaStrip component.",
+      "featureId": "feature-wire-the-updated-background-asset-into-the-global-layout-by-updating-sitelayout-and-global-css-so-the-new-futuristic-background-image-is-used-instead-of-the-current-wood-dark-bg-image",
+      "featureTitle": "Wire the updated background asset into the global layout by updating SiteLayout and global CSS so the new futuristic background image is used instead of the current wood-dark-bg image.",
       "files": [
-        "frontend/src/content/galleryMedia.ts"
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -36,10 +39,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-enable-media-rendering-for-the-parquet-flooring-entry-in-the-services-page-additional-offerings-section-by-wiring-it-to-the-parquet-flooring-media-category",
-      "featureTitle": "Enable media rendering for the Parquet Flooring entry in the Services page \"Additional Offerings\" section by wiring it to the Parquet Flooring media category.",
+      "featureId": "feature-align-the-home-page-hero-background-treatment-with-the-new-global-futuristic-furniture-aesthetic-so-the-hero-section-does-not-feel-visually-disconnected-from-the-updated-site-wide-background",
+      "featureTitle": "Align the Home page hero background treatment with the new global futuristic furniture aesthetic so the hero section does not feel visually disconnected from the updated site-wide background.",
       "files": [
-        "frontend/src/content/services.ts"
+        "frontend/src/pages/HomePage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

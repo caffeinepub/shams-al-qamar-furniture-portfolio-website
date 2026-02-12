@@ -7,7 +7,7 @@ export interface GalleryItem {
 }
 
 export const galleryMedia: GalleryItem[] = [
-  // Curtains & Drapes
+  // Curtains & Drapes - Mix of curtains and sheers
   {
     id: 'curtain-001',
     type: 'image',
@@ -23,11 +23,25 @@ export const galleryMedia: GalleryItem[] = [
     path: 'assets/generated/IMG-20260205-WA0003-1-clean.dim_1600x1200.jpg',
   },
   {
+    id: 'curtain-sheer-001',
+    type: 'image',
+    category: 'curtains-drapes',
+    title: 'Modern White Sheer Curtains with Ambient Lighting',
+    path: 'assets/sheer1.jpeg',
+  },
+  {
     id: 'curtain-003',
     type: 'image',
     category: 'curtains-drapes',
     title: 'Luxury Curtains with Valance and Tassels',
     path: 'assets/generated/IMG-20260205-WA0002-1-clean.dim_1600x1200.jpg',
+  },
+  {
+    id: 'curtain-sheer-002',
+    type: 'image',
+    category: 'curtains-drapes',
+    title: 'Contemporary Sheer Curtains with Black Frame Windows',
+    path: 'assets/sheer2.jpeg',
   },
   {
     id: 'curtain-004',
@@ -44,6 +58,13 @@ export const galleryMedia: GalleryItem[] = [
     path: 'assets/generated/IMG-20260205-WA0012-1-clean.dim_1600x1200.jpg',
   },
   {
+    id: 'curtain-sheer-003',
+    type: 'image',
+    category: 'curtains-drapes',
+    title: 'Elegant White Sheer Curtains in Modern Living Space',
+    path: 'assets/sheer3.jpeg',
+  },
+  {
     id: 'curtain-006',
     type: 'image',
     category: 'curtains-drapes',
@@ -56,6 +77,13 @@ export const galleryMedia: GalleryItem[] = [
     category: 'curtains-drapes',
     title: 'Modern Gray Curtains',
     path: 'assets/generated/IMG-20260205-WA0008-1-clean.dim_1600x1200.jpg',
+  },
+  {
+    id: 'curtain-sheer-004',
+    type: 'image',
+    category: 'curtains-drapes',
+    title: 'Floor-to-Ceiling Sheer Curtains with Statement Lighting',
+    path: 'assets/sheer4.jpeg',
   },
   {
     id: 'curtain-008',
@@ -265,50 +293,6 @@ export const galleryMedia: GalleryItem[] = [
     category: 'majlis-seating',
     title: 'Royal Blue Traditional Majlis',
     path: 'assets/arabic majlis4-1.jpeg',
-  },
-
-  // Carpet Installation
-  {
-    id: 'carpet-001',
-    type: 'image',
-    category: 'carpet-installation',
-    title: 'Elegant Beige Carpet with Chandelier and Modern Lighting',
-    path: 'assets/carpet4.jpeg',
-  },
-  {
-    id: 'carpet-002',
-    type: 'image',
-    category: 'carpet-installation',
-    title: 'Beige Carpet Installation in Elegant Room',
-    path: 'assets/carpet2.jpeg',
-  },
-  {
-    id: 'carpet-003',
-    type: 'image',
-    category: 'carpet-installation',
-    title: 'Premium Beige Carpet with Teal Accent',
-    path: 'assets/carpet1.jpeg',
-  },
-  {
-    id: 'carpet-004',
-    type: 'image',
-    category: 'carpet-installation',
-    title: 'Spacious Room with Beige Carpet Installation',
-    path: 'assets/carpet3.jpeg',
-  },
-  {
-    id: 'carpet-005',
-    type: 'image',
-    category: 'carpet-installation',
-    title: 'Gray Textured Carpet with Curtains and Built-in Wardrobes',
-    path: 'assets/carpet1.1.jpeg',
-  },
-  {
-    id: 'carpet-006',
-    type: 'image',
-    category: 'carpet-installation',
-    title: 'Carpet Installation Service Preview',
-    path: 'assets/Screenshot 2026-02-12 215137.png',
   },
 
   // Roller Blinds

@@ -1,72 +1,89 @@
 {
   "kind": "build_request",
-  "title": "Apply Vertical Blinds gallery/media setup to Parquet Flooring service",
+  "title": "Replace dull dark-wood background with an engaging futuristic furniture-themed backdrop",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a new generated static image asset for the Parquet Flooring service and place it under frontend/public/assets/generated with the exact filename specified in the image requirements.",
+      "text": "Update the global site background to feel more engaging and futuristic while still matching the furniture/interior theme (improve on the current dull dark-wood look) and keep all page content readable.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "nice.. now add this to parquet flooring service"
+          "I think it has goes in dull can you make background something like that will attract people engagement and also it should match with our content which is furniture .. it has to give look like futuristic something .."
         ]
       },
       "acceptanceCriteria": [
-        "A new image file exists at frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg.",
-        "The app can load the image via the existing public asset loading approach (served from the frontend public directory)."
+        "All pages using SiteLayout render with the updated, more engaging futuristic furniture-themed background.",
+        "Foreground text and UI elements maintain good contrast/readability against the new background (no major sections become hard to read).",
+        "The existing layout structure (Header, Footer, page sections) remains intact; changes are limited to background/styling."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add a new gallery media item for the Parquet Flooring category so it can be rendered by the existing MediaStrip component.",
+      "text": "Wire the updated background asset into the global layout by updating SiteLayout and global CSS so the new futuristic background image is used instead of the current wood-dark-bg image.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "nice.. now add this to parquet flooring service"
+          "can you make background something like that will attract people engagement",
+          "it has to give look like futuristic"
         ]
       },
       "acceptanceCriteria": [
-        "frontend/src/content/galleryMedia.ts includes at least one new GalleryItem with category set to \"parquet-flooring\".",
-        "The new GalleryItem references the generated parquet flooring image path \"assets/generated/parquet-flooring-001.dim_1600x1200.jpg\".",
-        "The GalleryItem id is unique within galleryMedia."
+        "frontend/src/components/layout/SiteLayout.tsx uses the new generated background filename via publicAsset(...) for the '--wood-bg-url' background image.",
+        "frontend/src/index.css (.wooden-bg::before / ::after) is adjusted as needed (e.g., overlay/opacity/gradient) to complement the new background and preserve readability.",
+        "The app builds successfully and the background renders correctly in production routing/base-path scenarios (still using publicAsset)."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Enable media rendering for the Parquet Flooring entry in the Services page \"Additional Offerings\" section by wiring it to the Parquet Flooring media category.",
+      "text": "Align the Home page hero background treatment with the new global futuristic furniture aesthetic so the hero section does not feel visually disconnected from the updated site-wide background.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "nice.. now add this to parquet flooring service"
+          "it should match with our content which is furniture",
+          "it has to give look like futuristic"
         ]
       },
       "acceptanceCriteria": [
-        "frontend/src/content/services.ts sets the Parquet Flooring additionalOfferings entry mediaCategory to \"parquet-flooring\".",
-        "On the Services page, the Parquet Flooring card in Additional Offerings renders a MediaStrip and displays the parquet flooring media item(s)."
+        "HomePage hero background/overlays (including the existing hero background image layer and gradients) are adjusted so the hero looks consistent with the updated global background style.",
+        "No new user-facing copy is added/changed; only visual styling/imagery treatment changes.",
+        "Hero text and CTA buttons remain clearly readable on common screen sizes."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui or any frontend immutablePaths listed in SYSTEM_CONTEXT."
+    "Do not modify any files under frontend/src/components/ui (Shadcn components are read-only).",
+    "Do not edit immutable hook files (e.g., frontend/src/hooks/useInternetIdentity.ts / .tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Keep all images as static assets in the frontend (do not serve images via the backend)."
   ],
   "nonGoals": [
-    "No backend/canister changes.",
-    "No new routing/pages beyond wiring Parquet Flooring media into existing Services page sections."
+    "No backend changes (Motoko actor remains unchanged).",
+    "No new pages, routing changes, or feature additions beyond background/theme refinement.",
+    "No third-party integrations or animation systems beyond existing Tailwind/CSS usage."
   ],
   "imageRequirements": {
-    "required": [
-      "Parquet flooring in a bright modern interior photo (parquet-flooring-001.dim_1600x1200.jpg)"
-    ],
-    "edits": []
+    "required": [],
+    "edits": [
+      "Make the existing dark wood background feel more futuristic and engaging while remaining furniture/interior themed; add subtle modern geometric/tech accents and lighting while keeping it dark and premium (wood-dark-bg.dim_1920x1080.png > wood-futuristic-bg.dim_1920x1080.png)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

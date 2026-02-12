@@ -30,7 +30,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-wood-header backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo */}
         <button
@@ -43,10 +43,10 @@ export default function Header() {
             className="saq-logo h-10 w-10"
           />
           <div className="flex flex-col items-start">
-            <span className="font-serif text-lg font-bold leading-tight">
+            <span className="font-serif text-lg font-bold leading-tight text-white">
               {brandAssets.companyName.primary}
             </span>
-            <span className="text-xs font-medium tracking-wider text-muted-foreground">
+            <span className="text-xs font-medium tracking-wider text-gold">
               {brandAssets.companyName.secondary}
             </span>
           </div>
@@ -58,10 +58,10 @@ export default function Header() {
             <button
               key={item.path}
               onClick={() => handleNavigation(item.path)}
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
+              className={`text-sm font-medium transition-colors hover:text-gold ${
                 isActive(item.path)
-                  ? 'text-foreground'
-                  : 'text-muted-foreground'
+                  ? 'text-gold'
+                  : 'text-white/80'
               }`}
             >
               {item.label}
@@ -75,7 +75,7 @@ export default function Header() {
             href={socialLinks.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-white/70 transition-colors hover:text-gold"
             aria-label="Instagram"
           >
             <SiInstagram className="h-5 w-5" />
@@ -84,7 +84,7 @@ export default function Header() {
             href={socialLinks.tiktok}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-white/70 transition-colors hover:text-gold"
             aria-label="TikTok"
           >
             <SiTiktok className="h-5 w-5" />
@@ -93,7 +93,7 @@ export default function Header() {
             href={socialLinks.snapchat}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-white/70 transition-colors hover:text-gold"
             aria-label="Snapchat"
           >
             <SiSnapchat className="h-5 w-5" />
@@ -102,7 +102,7 @@ export default function Header() {
             href={socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-white/70 transition-colors hover:text-gold"
             aria-label="LinkedIn"
           >
             <SiLinkedin className="h-5 w-5" />
@@ -111,7 +111,7 @@ export default function Header() {
             href={socialLinks.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-white/70 transition-colors hover:text-gold"
             aria-label="WhatsApp"
           >
             <SiWhatsapp className="h-5 w-5" />
@@ -121,31 +121,31 @@ export default function Header() {
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-gold">
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetContent side="right" className="w-[300px] border-white/10 bg-wood-card sm:w-[400px]">
             <nav className="flex flex-col gap-4 pt-8">
               {navItems.map((item) => (
                 <button
                   key={item.path}
                   onClick={() => handleNavigation(item.path)}
-                  className={`text-left text-lg font-medium transition-colors hover:text-foreground ${
+                  className={`text-left text-lg font-medium transition-colors hover:text-gold ${
                     isActive(item.path)
-                      ? 'text-foreground'
-                      : 'text-muted-foreground'
+                      ? 'text-gold'
+                      : 'text-white/80'
                   }`}
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="mt-6 flex gap-4 border-t border-border pt-6">
+              <div className="mt-6 flex gap-4 border-t border-white/10 pt-6">
                 <a
                   href={socialLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-white/70 transition-colors hover:text-gold"
                   aria-label="Instagram"
                 >
                   <SiInstagram className="h-6 w-6" />
@@ -154,7 +154,7 @@ export default function Header() {
                   href={socialLinks.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-white/70 transition-colors hover:text-gold"
                   aria-label="TikTok"
                 >
                   <SiTiktok className="h-6 w-6" />
@@ -163,7 +163,7 @@ export default function Header() {
                   href={socialLinks.snapchat}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-white/70 transition-colors hover:text-gold"
                   aria-label="Snapchat"
                 >
                   <SiSnapchat className="h-6 w-6" />
@@ -172,7 +172,7 @@ export default function Header() {
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-white/70 transition-colors hover:text-gold"
                   aria-label="LinkedIn"
                 >
                   <SiLinkedin className="h-6 w-6" />
@@ -181,7 +181,7 @@ export default function Header() {
                   href={socialLinks.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-white/70 transition-colors hover:text-gold"
                   aria-label="WhatsApp"
                 >
                   <SiWhatsapp className="h-6 w-6" />

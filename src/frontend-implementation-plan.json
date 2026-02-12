@@ -1,51 +1,63 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Wire Parquet Flooring media into existing Services gallery system",
+  "title": "Futuristic furniture-themed background refresh (global + hero alignment)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add the generated Parquet Flooring static image asset to the public generated assets directory.",
+      "summary": "Refresh global background styling to a more engaging futuristic furniture/interior aesthetic while preserving readability across all pages.",
       "acceptanceCriteria": [
-        "A new image file exists at frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg.",
-        "The app can load the image via the existing public asset loading approach (served from the frontend public directory)."
+        "All pages using SiteLayout render with the updated, more engaging futuristic furniture-themed background.",
+        "Foreground text and UI elements maintain good contrast/readability against the new background (no major sections become hard to read).",
+        "The existing layout structure (Header, Footer, page sections) remains intact; changes are limited to background/styling."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg",
-          "operation": "create",
-          "description": "Add the generated image asset for Parquet Flooring exactly at frontend/public/assets/generated/parquet-flooring-001.dim_1600x1200.jpg so it is served as a static public asset."
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the global background styling for .wooden-bg (and its ::before/::after layers) to better complement a futuristic furniture-themed backdrop while preserving contrast (e.g., tune opacity, add refined dark premium overlays/gradients, ensure fixed background remains subtle). Keep changes limited to background/styling and avoid impacting layout structure."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add a Parquet Flooring gallery item so MediaStrip can render it by category.",
+      "summary": "Replace the current wood background image with the new generated futuristic background and wire it through SiteLayout and global CSS using publicAsset for base-path safety.",
       "acceptanceCriteria": [
-        "frontend/src/content/galleryMedia.ts includes at least one new GalleryItem with category set to \"parquet-flooring\".",
-        "The new GalleryItem references the generated parquet flooring image path \"assets/generated/parquet-flooring-001.dim_1600x1200.jpg\".",
-        "The GalleryItem id is unique within galleryMedia."
+        "frontend/src/components/layout/SiteLayout.tsx uses the new generated background filename via publicAsset(...) for the '--wood-bg-url' background image.",
+        "frontend/src/index.css (.wooden-bg::before / ::after) is adjusted as needed (e.g., overlay/opacity/gradient) to complement the new background and preserve readability.",
+        "The app builds successfully and the background renders correctly in production routing/base-path scenarios (still using publicAsset)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/content/galleryMedia.ts",
+          "path": "frontend/public/assets/generated/wood-futuristic-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated futuristic replacement for the existing dark wood background as a static public asset (keep images frontend-only as required)."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
           "operation": "modify",
-          "description": "Append a new GalleryItem entry for the \"parquet-flooring\" category with a unique id (e.g., \"parquet-flooring-001\"), type \"image\", an appropriate title, and path set to \"assets/generated/parquet-flooring-001.dim_1600x1200.jpg\" so the existing MediaStrip component can resolve and render it via publicAsset()."
+          "description": "Switch the resolved background image from assets/generated/wood-dark-bg.dim_1920x1080.png to assets/generated/wood-futuristic-bg.dim_1920x1080.png using publicAsset(...) and keep the '--wood-bg-url' wiring intact for global CSS consumption."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Ensure .wooden-bg::before uses the --wood-bg-url image cleanly with the new futuristic background and refine ::after overlay/gradient as needed to maintain legibility against the updated asset (without changing page structure)."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Wire the Parquet Flooring Additional Offerings card to the Parquet Flooring media category so it renders a MediaStrip on the Services page.",
+      "summary": "Adjust the Home page hero visual treatment so it harmonizes with the new global futuristic furniture-themed background while keeping hero content readable and copy unchanged.",
       "acceptanceCriteria": [
-        "frontend/src/content/services.ts sets the Parquet Flooring additionalOfferings entry mediaCategory to \"parquet-flooring\".",
-        "On the Services page, the Parquet Flooring card in Additional Offerings renders a MediaStrip and displays the parquet flooring media item(s)."
+        "HomePage hero background/overlays (including the existing hero background image layer and gradients) are adjusted so the hero looks consistent with the updated global background style.",
+        "No new user-facing copy is added/changed; only visual styling/imagery treatment changes.",
+        "Hero text and CTA buttons remain clearly readable on common screen sizes."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/content/services.ts",
+          "path": "frontend/src/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Update the \"Parquet Flooring\" entry in additionalOfferings to include mediaCategory: \"parquet-flooring\" so the existing Services page logic conditionally renders MediaStrip for that card."
+          "description": "Refine the hero section’s background layers (existing hero background image opacity + gradient overlays and/or section background gradient classes) to visually align with the new global futuristic background aesthetic while keeping all text/CTAs readable and not changing any user-facing copy."
         }
       ]
     }

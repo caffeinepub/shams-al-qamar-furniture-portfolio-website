@@ -12,26 +12,27 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative min-h-[600px] overflow-hidden bg-gradient-to-br from-background via-muted/20 to-accent/10">
+      <section className="relative min-h-[600px] overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
             backgroundImage: `url(${publicAsset('assets/generated/shams-al-qamar-hero-bg.dim_1920x1080.png')})`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
         
         <div className="container relative mx-auto flex min-h-[600px] flex-col items-center justify-center px-4 py-20 text-center md:px-6">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background/50 px-4 py-2 text-sm backdrop-blur-sm">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-background/60 px-4 py-2 text-sm backdrop-blur-md shadow-gold">
             <Sparkles className="h-4 w-4 text-gold" />
-            <span className="font-medium">Premium Interior Solutions</span>
+            <span className="font-medium text-gold">Premium Interior Solutions</span>
           </div>
           
-          <h1 className="mb-4 font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mb-4 font-serif text-4xl font-bold tracking-tight text-foreground drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
             {siteCopy.companyName}
           </h1>
           
-          <p className="mb-8 max-w-2xl text-xl text-muted-foreground md:text-2xl">
+          <p className="mb-8 max-w-2xl text-xl text-foreground/90 drop-shadow-md md:text-2xl">
             {siteCopy.tagline}
           </p>
           
@@ -39,7 +40,7 @@ export default function HomePage() {
             <Button
               size="lg"
               onClick={() => navigate({ to: '/services' })}
-              className="gap-2 text-base"
+              className="gap-2 text-base shadow-elegant-lg"
             >
               Explore Services
               <ArrowRight className="h-5 w-5" />
@@ -48,7 +49,7 @@ export default function HomePage() {
               size="lg"
               variant="outline"
               onClick={() => navigate({ to: '/contact' })}
-              className="text-base"
+              className="text-base backdrop-blur-sm"
             >
               Get in Touch
             </Button>
@@ -56,7 +57,7 @@ export default function HomePage() {
 
           {/* Contact Summary & QR */}
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-            <Card className="bg-background/80 backdrop-blur-sm">
+            <Card className="bg-background/85 backdrop-blur-md shadow-elegant-lg">
               <CardContent className="p-6">
                 <h3 className="mb-4 font-semibold">Contact Information</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
@@ -85,7 +86,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="border-t border-border bg-muted/30 py-20">
+      <section className="border-t border-border/50 bg-gradient-to-b from-muted/20 to-muted/40 py-20 backdrop-blur-sm">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-serif text-3xl font-bold md:text-4xl">What We Do</h2>
@@ -100,7 +101,7 @@ export default function HomePage() {
               { title: 'Wallpaper Solutions', desc: 'Designer prints & textured finishes' },
               { title: 'Full Interior Fit-outs', desc: 'Residential & commercial projects' },
             ].map((service, idx) => (
-              <Card key={idx} className="transition-shadow hover:shadow-lg">
+              <Card key={idx} className="bg-wood-card transition-all hover:shadow-elegant-lg hover:scale-[1.02]">
                 <CardContent className="p-6">
                   <h3 className="mb-2 font-semibold">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">{service.desc}</p>
@@ -110,7 +111,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button size="lg" onClick={() => navigate({ to: '/services' })} className="gap-2">
+            <Button size="lg" onClick={() => navigate({ to: '/services' })} className="gap-2 shadow-elegant-lg">
               View All Services
               <ArrowRight className="h-5 w-5" />
             </Button>

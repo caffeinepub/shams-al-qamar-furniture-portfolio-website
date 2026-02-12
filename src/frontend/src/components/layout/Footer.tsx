@@ -25,7 +25,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-border bg-muted/30">
+    <footer className="border-t border-white/10 bg-wood-footer">
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -37,28 +37,28 @@ export default function Footer() {
                 className="saq-logo h-12 w-12"
               />
               <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold leading-tight">
+                <span className="font-serif text-xl font-bold leading-tight text-white">
                   {brandAssets.companyName.primary}
                 </span>
-                <span className="text-xs font-medium tracking-wider text-muted-foreground">
+                <span className="text-xs font-medium tracking-wider text-gold">
                   {brandAssets.companyName.secondary}
                 </span>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-white/70">
               Premium interior solutions for your home and business
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 font-semibold">Quick Links</h3>
+            <h3 className="mb-4 font-semibold text-white">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <button
                     onClick={() => navigate({ to: link.path })}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-white/70 transition-colors hover:text-gold"
                   >
                     {link.label}
                   </button>
@@ -69,16 +69,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-4 font-semibold">Contact</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h3 className="mb-4 font-semibold text-white">Contact</h3>
+            <ul className="space-y-2 text-sm text-white/70">
               <li>
-                <a href={`mailto:${contactInfo.email}`} className="hover:text-foreground">
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-gold">
                   {contactInfo.email}
                 </a>
               </li>
               {contactInfo.phones.map((phone, idx) => (
                 <li key={idx}>
-                  <a href={`tel:${phone.number}`} className="hover:text-foreground">
+                  <a href={`tel:${phone.number}`} className="hover:text-gold">
                     {phone.name}: {phone.number}
                   </a>
                 </li>
@@ -89,13 +89,13 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="mb-4 font-semibold">Follow Us</h3>
+            <h3 className="mb-4 font-semibold text-white">Follow Us</h3>
             <div className="flex gap-4">
               <a
                 href={socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-white/70 transition-colors hover:text-gold"
                 aria-label="Instagram"
               >
                 <SiInstagram className="h-6 w-6" />
@@ -104,7 +104,7 @@ export default function Footer() {
                 href={socialLinks.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-white/70 transition-colors hover:text-gold"
                 aria-label="TikTok"
               >
                 <SiTiktok className="h-6 w-6" />
@@ -113,7 +113,7 @@ export default function Footer() {
                 href={socialLinks.snapchat}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-white/70 transition-colors hover:text-gold"
                 aria-label="Snapchat"
               >
                 <SiSnapchat className="h-6 w-6" />
@@ -122,7 +122,7 @@ export default function Footer() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-white/70 transition-colors hover:text-gold"
                 aria-label="LinkedIn"
               >
                 <SiLinkedin className="h-6 w-6" />
@@ -131,7 +131,7 @@ export default function Footer() {
                 href={socialLinks.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-white/70 transition-colors hover:text-gold"
                 aria-label="WhatsApp"
               >
                 <SiWhatsapp className="h-6 w-6" />
@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/60">
           <p>
             © {new Date().getFullYear()} {brandAssets.companyName.primary}. All rights reserved.
           </p>
@@ -151,7 +151,7 @@ export default function Footer() {
               href={getUtmLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium hover:underline"
+              className="font-medium text-gold hover:underline"
             >
               caffeine.ai
             </a>
